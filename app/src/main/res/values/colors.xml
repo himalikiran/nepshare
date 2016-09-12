@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+        <color name="colorPrimary">#009688</color>
+        <color name="colorPrimaryDark">#00796B</color>
+        <color name="colorPrimaryLight">#B2DFDB</color>
+        <color name="colorAccent">#FF4081</color>
+        <color name="priceIncrease">#20bd90</color>
+        <color name="priceDecrease">#f55151</color>
+        <color name="companyName">#474747</color>
+        <color name="appBar">#666666</color>
+        <color name="primary_text">#00796b</color>
+        <color name="secondary_text">#009688</color>
+        <color name="white">#FFFFFF</color>
+</resources>

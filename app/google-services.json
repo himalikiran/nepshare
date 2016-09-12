@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "895667106647",
+    "firebase_url": "https://nepshare.firebaseio.com",
+    "project_id": "firebase-nepshare",
+    "storage_bucket": "firebase-nepshare.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:895667106647:android:d434e4f7ecfa519a",
+        "android_client_info": {
+          "package_name": "com.himalikiran.nepshare"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "895667106647-lanqq6a6po46hmcj76oulsbsgerugv7i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.himalikiran.nepshare",
+            "certificate_hash": "A4F42536002694071CAFC6E25159AC2A5A96EF12"
+          }
+        },
+        {
+          "client_id": "895667106647-mujuncrsq2on6r3n8u0q1241no4ho9jm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.himalikiran.nepshare",
+            "certificate_hash": "B0947CA26A363A4BE129E961A2A121B8934D4FA8"
+          }
+        },
+        {
+          "client_id": "895667106647-27avsl8qen2v89985qjgdsp7ks1i0s3j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDuVXJKL1ZhNIKzQHP1X06glYULl0e1Esc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "895667106647-27avsl8qen2v89985qjgdsp7ks1i0s3j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minHeight="200dp"
+    android:minWidth="300dp"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <AutoCompleteTextView
+            android:id="@+id/symbText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Stock Symbol" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/qtyText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Quantity" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <EditText
+        android:id="@+id/priceText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Price" />
+    </android.support.design.widget.TextInputLayout>
+    <!--<TextView-->
+    <!--android:id="@+id/tv"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="Share Type"-->
+    <!--android:textSize="18sp" />-->
+
+
+
+<!--<RadioGroup-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--&gt;-->
+<!--<LinearLayout-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:orientation="horizontal">-->
+    <!--<RadioButton-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Primary"-->
+        <!--android:layout_weight="1"-->
+        <!--/>-->
+    <!--<RadioButton-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Secondary"-->
+        <!--android:layout_weight="1"-->
+        <!--/>-->
+
+<!--</LinearLayout>-->
+
+
+
+    <!--<RadioButton-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Bonus"-->
+        <!--/>-->
+
+    <!--<RadioButton-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Right"-->
+        <!--/>-->
+    <!--</RadioGroup>-->
+    <Spinner
+        android:id="@+id/shareType"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/shareType"
+        android:prompt="@string/shareTypeLabel"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:width="0dp"
+            android:text="Cancel" />
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:width="0dp"
+            android:text="Save" />
+    </LinearLayout>
+
+</LinearLayout>
