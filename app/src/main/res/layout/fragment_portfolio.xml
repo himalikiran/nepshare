@@ -13,6 +13,7 @@
 
 
         <TextView
+            android:id="@+id/inv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Investment: NPR 54254524.00"
@@ -36,7 +37,12 @@
 
 
     </LinearLayout>
+<!--<android.support.v7.widget.RecyclerView-->
+    <!--android:id="@+id/portfolioShareList"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent">-->
 
+<!--</android.support.v7.widget.RecyclerView>-->
     <ListView
         android:id="@+id/myStockList"
         android:layout_width="match_parent"

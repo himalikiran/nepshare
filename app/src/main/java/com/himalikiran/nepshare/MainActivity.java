@@ -88,9 +88,6 @@ public class MainActivity extends AppCompatActivity {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
 
-                //Snackbar.make(navView, "Provider " + user.getProviderId(), Snackbar.LENGTH_LONG)
-                //        .setAction("Action", null).show();
-
                 if (user != null) {
                     // User is signed in
                     //Toast.makeText(getApplicationContext(), "Sign in successful! " +user.getUid(),Toast.LENGTH_LONG).show();

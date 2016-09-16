@@ -16,15 +16,15 @@ public class Share {
     public String uid;
     public String symbol;
     public int quantity;
-    public float price;
+    public double price;
     public String type;
-    public Map<String, Boolean> stars = new HashMap<>();
+   // public Map<String, Boolean> stars = new HashMap<>();
 
     public Share() {
         // Default constructor required for calls to DataSnapshot.getValue(Post.class)
     }
 
-    public Share(String uid, String symbol, int quantity, float price, String type) {
+    public Share(String uid, String symbol, int quantity, double price, String type) {
         this.uid = uid;
         this.symbol = symbol;
         this.quantity = quantity;
@@ -56,7 +56,7 @@ public class Share {
 //        this.quantity = quantity;
 //    }
 
-    public float getPrice() {
+    public double getPrice() {
         return price;
     }
 

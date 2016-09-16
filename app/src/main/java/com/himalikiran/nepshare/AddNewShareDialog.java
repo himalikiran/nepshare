@@ -3,6 +3,7 @@ package com.himalikiran.nepshare;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.annotation.IntegerRes;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
@@ -12,7 +13,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-
+import com.google.firebase.auth.FirebaseAuth;
 /**
  * Created by himalikiran on 8/26/2016.
  */
@@ -20,6 +21,7 @@ import android.widget.Button;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseUser;
@@ -34,12 +36,15 @@ public class AddNewShareDialog extends DialogFragment implements OnClickListener
     private AutoCompleteTextView mSymbolTextView;
     private EditText mQtyText;
     private EditText mPriceText;
-    private EditText mTypeText;
+    private Spinner mShareType;
     private RadioGroup mRadioShareType;
 
 
     private DatabaseReference mDatabase;
+    //private myRef = DatabaseReference.get
 
+    private FirebaseAuth mAuth;
+    private FirebaseUser mUser;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -57,15 +62,23 @@ public class AddNewShareDialog extends DialogFragment implements OnClickListener
 
         //Data captured from form
         mSymbolTextView = (AutoCompleteTextView)view.findViewById(R.id.symbText);
+        mQtyText = (EditText)view.findViewById(R.id.qtyText);
+        mPriceText =(EditText)view.findViewById(R.id.priceText);
+        mShareType = (Spinner)view.findViewById(R.id.shareType);
 
 
 
         //mRadioShareType = (RadioGroup) view.findViewById(R.id.radioShareType);
         //mRadioShareType.clearCheck();
         // [START initialize_database_ref]
+
+        // [START initialize_auth]
+        mAuth = FirebaseAuth.getInstance();
+        // [END initialize_auth]
+
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
-//        FirebaseUser user = firebaseAuth.getCurrentUser();
+        mUser = mAuth.getCurrentUser();
 
         // [END initialize_database_ref]
 
@@ -95,10 +108,15 @@ public class AddNewShareDialog extends DialogFragment implements OnClickListener
     }
 
     public void addNewShare(){
+        String uid = mUser.getUid();
+        String smb = mSymbolTextView.getText().toString();
+        int qty = Integer.parseInt(mQtyText.getText().toString());
+        double price = Double.parseDouble(mPriceText.getText().toString());
+        String sType = mShareType.getSelectedItem().toString();
 
-       String smb = mSymbolTextView.getText().toString();
+        Share share = new Share( uid, smb, qty, price, sType);
 
-        //Share share = new Share(smb,"asdfa");
+        mDatabase.child("Portfolio").setValue(share);
         //mDatabase.child("portfolio").setValue(share);
     }
 
