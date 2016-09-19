@@ -3,15 +3,15 @@ package com.himalikiran.nepshare;
 /**
  * Created by himalikiran on 9/16/2016.
  */
-public class PortfolioItem {
+public class PortfolioItems {
     String symbol;
     int quantity;
-    String lastPrice;
+    int lastPrice;
 
-    public PortfolioItem() {
+    public PortfolioItems() {
     }
 
-    public PortfolioItem(String symbol, int quantity, String lastPrice) {
+    public PortfolioItems(String symbol, int quantity, int lastPrice) {
         this.symbol = symbol;
         this.quantity = quantity;
         this.lastPrice = lastPrice;
@@ -33,11 +33,11 @@ public class PortfolioItem {
         this.quantity = quantity;
     }
 
-    public String getLastPrice() {
+    public double getLastPrice() {
         return lastPrice;
     }
 
-    public void setLastPrice(String lastPrice) {
+    public void setLastPrice(int lastPrice) {
         this.lastPrice = lastPrice;
     }
 }
