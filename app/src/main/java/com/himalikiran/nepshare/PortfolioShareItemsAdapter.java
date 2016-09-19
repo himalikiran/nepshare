@@ -5,19 +5,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.himalikiran.nepshare.PortfolioItem;
 
 import java.util.ArrayList;
 
 /**
  * Created by himalikiran on 9/16/2016.
  */
-public class PortfolioShareItemsAdapter extends ArrayAdapter<PortfolioItem>{
+public class PortfolioShareItemsAdapter extends ArrayAdapter<PortfolioItems>{
 
-    public PortfolioShareItemsAdapter(Activity context, ArrayList<PortfolioItem> portfolioitems) {
+    public PortfolioShareItemsAdapter(Activity context, ArrayList<PortfolioItems> portfolioitems) {
         // Here, we initialize the ArrayAdapter's internal storage for the context and the list.
         // the second argument is used when the ArrayAdapter is populating a single TextView.
         // Because this is a custom adapter for two TextViews and an ImageView, the adapter is not
@@ -36,7 +33,7 @@ public class PortfolioShareItemsAdapter extends ArrayAdapter<PortfolioItem>{
         }
 
         // Get the {@link AndroidFlavor} object located at this position in the list
-        PortfolioItem currentItem = getItem(position);
+        PortfolioItems currentItem = getItem(position);
 
         // Find the TextView in the list_item.xml layout with the ID version_name
         TextView symbolTextView = (TextView) listItemView.findViewById(R.id.symbolText);
@@ -48,11 +45,14 @@ public class PortfolioShareItemsAdapter extends ArrayAdapter<PortfolioItem>{
         TextView quantityTextView = (TextView) listItemView.findViewById(R.id.quantityText);
         // Get the version number from the current AndroidFlavor object and
         // set this text on the number TextView
-        quantityTextView.setText(String.valueOf(currentItem.getQuantity()));
+        quantityTextView.setText(Integer.toString(currentItem.getQuantity()));
 
-        TextView rateTextView = (TextView) listItemView.findViewById(R.id.rateText);
-        rateTextView.setText(currentItem.getLastPrice());
+        TextView priceTextView = (TextView) listItemView.findViewById(R.id.priceText);
+        priceTextView.setText(String.format("%.2f",(currentItem.getPrice())));
 
+
+        TextView netGainTextView = (TextView) listItemView.findViewById(R.id.netGainText);
+        netGainTextView.setText(String.format("%.2f",(currentItem.getNetGain())));
 
 //        // Find the ImageView in the list_item.xml layout with the ID list_item_icon
 //        ImageView iconView = (ImageView) listItemView.findViewById(R.id.list_item_icon);

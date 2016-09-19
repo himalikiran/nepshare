@@ -95,6 +95,7 @@ public class AddNewShareDialog extends DialogFragment implements OnClickListener
             case R.id.btnSave:
                 addNewShare();
                 Toast.makeText(this.getContext(), "New Share has been added!",Toast.LENGTH_LONG).show();
+                this.dismiss();
                 break;
             default:
                 break;
@@ -116,7 +117,7 @@ public class AddNewShareDialog extends DialogFragment implements OnClickListener
 
         Share share = new Share( uid, smb, qty, price, sType);
 
-        mDatabase.child("Portfolio").setValue(share);
+        mDatabase.child("Portfolio").push().setValue(share);
         //mDatabase.child("portfolio").setValue(share);
     }
 
