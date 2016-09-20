@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimaryDark"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+
+    >
+
+<TextView
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:gravity="left"
+    android:text="Symbol "
+    android:textColor="@color/white"
+    android:layout_weight="10"
+    style="@style/portfolioStockHeader"
+    />
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:text="Last Price"
+        android:textColor="@color/white"
+        android:layout_weight="10"
+        android:gravity="right"
+        style="@style/portfolioStockHeader"/>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:text="Buy Price"
+        android:textColor="@color/white"
+        android:layout_weight="12"
+        style="@style/portfolioStockHeader"/>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:text="Quantity"
+        android:textColor="@color/white"
+        android:layout_weight="12"
+        style="@style/portfolioStockHeader"/>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:text="Net Gain"
+        android:textColor="@color/white"
+        android:layout_weight="15"
+        style="@style/portfolioStockHeader"/>
+</LinearLayout>
