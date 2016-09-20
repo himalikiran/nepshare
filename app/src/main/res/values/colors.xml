@@ -11,4 +11,5 @@
         <color name="primary_text">#00796b</color>
         <color name="secondary_text">#009688</color>
         <color name="white">#FFFFFF</color>
+        <color name="pagerBackground">#DDDDDD</color>
 </resources>

@@ -98,8 +98,7 @@ public class MainActivity extends AppCompatActivity {
                                 .setAction("Action", null).show();
                         userNameView.setText(user.getDisplayName().toString());
                         if (user.getPhotoUrl() != null) {
-                            //Glide.with(MainActivity.this).load(user.getPhotoUrl()).into(profilePicture);
-                            //Picasso.with(MainActivity.this).load(user.getPhotoUrl()).into(profilePicture);
+
                             Glide.with(MainActivity.this).load(user.getPhotoUrl()).asBitmap().centerCrop().into(new BitmapImageViewTarget(profilePicture) {
                                 @Override
                                 protected void setResource(Bitmap resource) {
@@ -226,10 +225,4 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-//    public void LoadSignInActivity(){
-//        Intent intent = new Intent(this, LoginActivity.class);
-//        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-//        startActivity(intent);
-//    }
 }

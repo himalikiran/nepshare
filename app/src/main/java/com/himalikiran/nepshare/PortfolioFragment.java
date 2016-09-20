@@ -58,10 +58,14 @@ public class PortfolioFragment extends Fragment {
        // mPortfolioShareList.setHasFixedSize(true);
       //  mPortfolioShareList.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        mSnapshot = (TextView) rootView.findViewById(R.id.inv);
+        mSnapshot = (TextView) rootView.findViewById(R.id.investment);
 
         mShareListView =(ListView)rootView.findViewById(R.id.myStockList);
 
+        LayoutInflater headerInflater = getActivity().getLayoutInflater();
+        View header = (ViewGroup) inflater.inflate(R.layout.portfolio_header, mShareListView, false);
+
+        mShareListView.addHeaderView(header);
         return rootView;
     }
 
@@ -80,6 +84,19 @@ public class PortfolioFragment extends Fragment {
         final PortfolioShareItemsAdapter itemsAdapter = new PortfolioShareItemsAdapter(getActivity(), mShareItems);
 
         mShareListView.setAdapter(itemsAdapter);
+        ValueEventListener itemListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                PortfolioItems pItem = dataSnapshot.getValue(PortfolioItems.class);
+                mShareItems.add(pItem);
+                itemsAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        };
 
         myRef.addChildEventListener(new ChildEventListener() {
             @Override
@@ -93,7 +110,7 @@ public class PortfolioFragment extends Fragment {
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
                 PortfolioItems pItem = dataSnapshot.getValue(PortfolioItems.class);
                 mShareItems.add(pItem);
-               // itemsAdapter.notifyDataSetChanged();
+                itemsAdapter.notifyDataSetChanged();
             }
 
             @Override
