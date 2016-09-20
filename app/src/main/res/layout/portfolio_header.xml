@@ -2,42 +2,55 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark">
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimaryDark"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+
+    >
 
 <TextView
-    android:layout_width="wrap_content"
+    android:layout_width="0dp"
     android:layout_height="wrap_content"
-    android:gravity="center_horizontal"
-    android:text="Symbol"
-    android:textAllCaps="true"
-    android:textColor="@color/white" />
+    android:gravity="left"
+    android:text="Symbol "
+    android:textColor="@color/white"
+    android:layout_weight="10"
+    style="@style/portfolioStockHeader"
+    />
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
+
         android:text="Last Price"
-        android:textAllCaps="true"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white"
+        android:layout_weight="10"
+        android:gravity="right"
+        style="@style/portfolioStockHeader"/>
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="Buying Price"
-        android:textAllCaps="true"
-        android:textColor="@color/white" />
+        android:gravity="right"
+        android:text="Buy Price"
+        android:textColor="@color/white"
+        android:layout_weight="12"
+        style="@style/portfolioStockHeader"/>
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
+        android:gravity="right"
         android:text="Quantity"
-        android:textAllCaps="true"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        android:layout_weight="12"
+        style="@style/portfolioStockHeader"/>
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
+        android:gravity="right"
         android:text="Net Gain"
-        android:textAllCaps="true"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        android:layout_weight="15"
+        style="@style/portfolioStockHeader"/>
 </LinearLayout>

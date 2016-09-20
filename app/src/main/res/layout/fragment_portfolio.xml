@@ -10,7 +10,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginTop="8dp"
         android:orientation="horizontal">
 
         <!-- A CardView that contains a TextView -->
@@ -20,21 +22,24 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="4dp"
             android:layout_marginRight="4dp"
+
             android:layout_weight="1"
-            card_view:cardCornerRadius="4dp">
+            card_view:cardCornerRadius="2dp">
+
             <ImageView
-                android:src="@drawable/investment_graph"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
-                android:scaleType="fitStart"
                 android:layout_marginLeft="2dp"
-                android:layout_marginTop="2dp"/>
+                android:layout_marginTop="2dp"
+                android:scaleType="fitStart"
+                android:src="@drawable/investment_graph" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="12dp"
-                android:orientation="vertical"
-                android:gravity="bottom">
+                android:gravity="bottom"
+                android:orientation="vertical">
 
                 <TextView
                     style="@style/portfolioDisplayPercent"
@@ -61,21 +66,22 @@
             android:layout_marginLeft="4dp"
             android:layout_marginRight="4dp"
             android:layout_weight="1"
-            card_view:cardCornerRadius="4dp">
+            card_view:cardCornerRadius="2dp">
+
             <ImageView
-                android:src="@drawable/networth_graph"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
-                android:scaleType="fitStart"
                 android:layout_marginLeft="2dp"
-                android:layout_marginTop="2dp"/>
+                android:layout_marginTop="2dp"
+                android:scaleType="fitStart"
+                android:src="@drawable/networth_graph" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="12dp"
-                android:orientation="vertical"
-                android:gravity="bottom">
+                android:gravity="bottom"
+                android:orientation="vertical">
 
                 <TextView
                     style="@style/portfolioDisplayPercent"
@@ -99,7 +105,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginTop="8dp"
         android:orientation="horizontal">
 
         <!-- A CardView that contains a TextView -->
@@ -111,7 +120,8 @@
             android:layout_marginLeft="4dp"
             android:layout_marginRight="4dp"
             android:layout_weight="1"
-            card_view:cardCornerRadius="4dp">
+            android:elevation="8dp"
+            card_view:cardCornerRadius="2dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -168,7 +178,7 @@
             android:layout_marginLeft="4dp"
             android:layout_marginRight="4dp"
             android:layout_weight="1"
-            card_view:cardCornerRadius="4dp">
+            card_view:cardCornerRadius="2dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
