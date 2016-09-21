@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.himalikiran.nepshare.models.Stocks;
+
 import java.util.ArrayList;
 
 /**

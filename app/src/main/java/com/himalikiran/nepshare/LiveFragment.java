@@ -17,6 +17,11 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.himalikiran.nepshare.models.Stocks;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -35,6 +40,16 @@ public class LiveFragment extends Fragment {
     private SwipeRefreshLayout swipeRefreshLayout;
     String fetch_url = "http://nepalstock.com.np/events";
     private static Context mContext;
+
+
+
+    private DatabaseReference mDatabase;
+    //private myRef = DatabaseReference.get
+
+    private FirebaseAuth mAuth;
+    private FirebaseUser mUser;
+
+
    // private Activity mActivity;
 
     public LiveFragment() {
@@ -45,6 +60,10 @@ public class LiveFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+
+
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(com.himalikiran.nepshare.R.layout.fragment_live, container, false);
 
@@ -97,6 +116,8 @@ public class LiveFragment extends Fragment {
                        }
                        ListView companyList = (ListView) getActivity().findViewById(R.id.stockList);
                        companyList.setAdapter(itemsAdapter);
+
+                       mDatabase.child("Stocks").setValue(stocks);
                    }
                     }, new Response.ErrorListener() {
                        @Override
