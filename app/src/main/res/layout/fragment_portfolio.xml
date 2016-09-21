@@ -58,7 +58,8 @@
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
-        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:id="@+id/card_view_networth"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -112,7 +113,8 @@
         android:orientation="horizontal">
 
         <!-- A CardView that contains a TextView -->
-        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:id="@+id/card_view_netgain"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -241,6 +243,7 @@
         android:id="@+id/myStockList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white" />
+        android:background="@color/white"
+        card_view:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
 </LinearLayout>

@@ -35,13 +35,13 @@ public class PortfolioShareItemsAdapter extends ArrayAdapter<PortfolioItems>{
         // Get the {@link AndroidFlavor} object located at this position in the list
         PortfolioItems currentItem = getItem(position);
 
-        // Find the TextView in the list_item.xml layout with the ID version_name
+        // Find the TextView in the NEPSE_list_itemt_item.xml layout with the ID version_name
         TextView symbolTextView = (TextView) listItemView.findViewById(R.id.symbolText);
         // Get the version name from the current AndroidFlavor object and
         // set this text on the name TextView
         symbolTextView.setText(currentItem.getSymbol());
 
-        // Find the TextView in the list_item.xml layout with the ID version_number
+        // Find the TextView in the NEPSE_list_itemt_item.xml layout with the ID version_number
         TextView quantityTextView = (TextView) listItemView.findViewById(R.id.quantityText);
         // Get the version number from the current AndroidFlavor object and
         // set this text on the number TextView
@@ -54,7 +54,7 @@ public class PortfolioShareItemsAdapter extends ArrayAdapter<PortfolioItems>{
         TextView netGainTextView = (TextView) listItemView.findViewById(R.id.netGainText);
         netGainTextView.setText(String.format("%.2f",(currentItem.getNetGain())));
 
-//        // Find the ImageView in the list_item.xml layout with the ID list_item_icon
+//        // Find the ImageView in the NEPSE_list_itemt_item.xml layout with the ID list_item_icon
 //        ImageView iconView = (ImageView) listItemView.findViewById(R.id.list_item_icon);
 //        // Get the image resource ID from the current AndroidFlavor object and
 //        // set the image to iconView

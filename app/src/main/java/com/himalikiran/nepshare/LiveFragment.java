@@ -63,6 +63,13 @@ public class LiveFragment extends Fragment {
 
         return rootView;
     }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        prepareData();
+    }
+
     public void prepareData( ){
         RequestQueue queue = Volley.newRequestQueue(getActivity());
         StringRequest stringRequest = new StringRequest(Request.Method.POST, fetch_url,
