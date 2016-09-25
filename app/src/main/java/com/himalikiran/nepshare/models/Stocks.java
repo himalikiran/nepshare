@@ -1,5 +1,7 @@
 package com.himalikiran.nepshare.models;
 
+import static com.google.android.gms.analytics.internal.zzy.d;
+
 /**
  * Created by himalikiran on 7/31/2016.
  */
@@ -7,56 +9,51 @@ public class Stocks {
     /**
      * Name of the Compaly listed in Nepal Stock Exchange.
      */
-    private String mCompany;
-    /**
-     * Last Price of the stock.
-     */
-    private String mPrice;
+    private String company;
+    private double price;
+    private double diff;
+    private double percent;
 
-    private float mDiff;
+
+    public Stocks() {
+
+    }
 
     /**
      * Constructor
-     * @param Company
-     * @param Price
+     * @param company
+     * @param price
+     * @param diff
      */
-    public Stocks(String Company, String Price, float Diff){
-        mCompany = Company;
-        mPrice = Price;
-        mDiff = Diff;
+    public Stocks(String company, double price, double diff) {
+        this.company = company;
+        this.price = price;
+        this.diff = diff;
     }
 
     /**
     * Get the company name
     */
     public String getCompany(){
-        return mCompany;
+        return this.company;
     }
 
      /**
      * Get the price
      */
-    public String getPrice(){
-        return mPrice;
+    public double getPrice(){
+        return this.price;
     }
 
     /**
      * Get the difference
      */
-    public float getDiff(){ return mDiff;}
+    public double getDiff(){ return this.diff;}
 
-    public float getPercent(){
-        float price=0;
-        try
-        {
-            price = Float.valueOf(mPrice.replaceAll(",",""));
-        }
-        catch (NumberFormatException nfe)
-        {
-            System.out.println("NumberFormatException: " + nfe.getMessage());
-        }
+    public double getPercent(){
 
-        float percent = mDiff / (price - mDiff) ;
+               double percent = this.diff / (getPrice() - this.diff) ;
+
         return percent;
     }
 }

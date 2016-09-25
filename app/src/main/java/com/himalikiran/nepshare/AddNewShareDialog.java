@@ -117,7 +117,7 @@ public class AddNewShareDialog extends DialogFragment implements OnClickListener
 
         Share share = new Share( uid, smb, qty, price, sType);
 
-        mDatabase.child("Portfolio").push().setValue(share);
+        mDatabase.child("Users").child(uid).child("Portfolio").push().setValue(share);
         //mDatabase.child("portfolio").setValue(share);
     }
 

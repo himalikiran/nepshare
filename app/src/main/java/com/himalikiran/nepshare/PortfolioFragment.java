@@ -12,11 +12,14 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -28,19 +31,13 @@ import java.util.ArrayList;
 public class PortfolioFragment extends Fragment {
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = database.getReference("Portfolio");
+    DatabaseReference myRef = database.getReference("Users");
     private ValueEventListener mPortfolioListener;
-
-
     private TextView mSnapshot;
+    private ListView mShareListView;
+    private FirebaseAuth mAuth;
+    private FirebaseUser mUser;
 
-    private ArrayAdapter<String> mPortfolioAdapter;
-
-
-
-    ListView mShareListView;
-
-    RecyclerView mPortfolioShareList;
 
     public PortfolioFragment() {
         // Required empty public constructor
@@ -57,6 +54,8 @@ public class PortfolioFragment extends Fragment {
 
        // mPortfolioShareList.setHasFixedSize(true);
       //  mPortfolioShareList.setLayoutManager(new LinearLayoutManager(getContext()));
+        mAuth = FirebaseAuth.getInstance();
+        mUser = mAuth.getCurrentUser();
 
         mSnapshot = (TextView) rootView.findViewById(R.id.investment);
 
@@ -80,7 +79,6 @@ public class PortfolioFragment extends Fragment {
 
 
         final ArrayList<PortfolioItems> mShareItems = new ArrayList<PortfolioItems>();
-
         final PortfolioShareItemsAdapter itemsAdapter = new PortfolioShareItemsAdapter(getActivity(), mShareItems);
 
         mShareListView.setAdapter(itemsAdapter);
@@ -98,7 +96,9 @@ public class PortfolioFragment extends Fragment {
             }
         };
 
-        myRef.addChildEventListener(new ChildEventListener() {
+        String uid = mUser.getUid();
+        //Query queryRef = myRef.child(uid).child("Portfolio").orderByChild(uid).equalTo(uid);
+        myRef.child(uid).child("Portfolio").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 PortfolioItems pItem = dataSnapshot.getValue(PortfolioItems.class);

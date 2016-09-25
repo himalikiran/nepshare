@@ -28,9 +28,15 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
+
+import static android.os.Build.VERSION_CODES.N;
+import static com.google.android.gms.analytics.internal.zzy.m;
+import static com.google.android.gms.analytics.internal.zzy.n;
 
 
 /**
@@ -105,13 +111,24 @@ public class LiveFragment extends Fragment {
 
                        StocksAdapter itemsAdapter = new StocksAdapter(getActivity(), stocks);
 
-
+                       double lastPrice=0;
                        List<String> rows = Arrays.asList(allData.split("\\u00a0\\u00a0\\s"));
 
                        for (int x = 0; x <= 50; x++) {
                            List<String> stockData = Arrays.asList(rows.get(x).split("\\s"));
+
                            float change = (Float.valueOf(stockData.get(6))).floatValue();
-                           stocks.add(new Stocks(stockData.get(0), stockData.get(1), change));
+                           try {
+                               NumberFormat ukFormat = NumberFormat.getNumberInstance(Locale.UK);
+                               lastPrice = ukFormat.parse(stockData.get(1)).doubleValue();
+
+                           }
+                           catch (java.text.ParseException e)
+                           {
+                               System.out.println("NumberFormatException: " + e.getMessage());
+                           }
+
+                           stocks.add(new Stocks(stockData.get(0), lastPrice, change));
 
                        }
                        ListView companyList = (ListView) getActivity().findViewById(R.id.stockList);

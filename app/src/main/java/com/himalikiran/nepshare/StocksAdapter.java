@@ -47,7 +47,7 @@ public class StocksAdapter extends ArrayAdapter<Stocks> {
         TextView subTitleTextView = (TextView) listItemView.findViewById(com.himalikiran.nepshare.R.id.priceText);
         // Get the version number from the current AndroidFlavor object and
         // set this text on the number TextView
-        subTitleTextView.setText(currentStock.getPrice());
+        subTitleTextView.setText(String.format("%.2f", currentStock.getPrice()));
 
         // Find the ImageView in the NEPSE_list_itemt_item.xml layout with the ID list_item_icon
         //ImageView iconView = (ImageView) listItemView.findViewById(R.id.list_item_icon);
@@ -68,7 +68,7 @@ public class StocksAdapter extends ArrayAdapter<Stocks> {
         }
 
         TextView totalDiff = (TextView) listItemView.findViewById(com.himalikiran.nepshare.R.id.totalDiff);
-        totalDiff.setText(Float.toString(currentStock.getDiff()));
+        totalDiff.setText(Double.toString(currentStock.getDiff()));
 
 
         TextView percentChange = (TextView) listItemView.findViewById(com.himalikiran.nepshare.R.id.percentChange);

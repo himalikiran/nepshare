@@ -31,6 +31,8 @@ import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import static com.google.android.gms.analytics.internal.zzy.t;
+
 
 public class MainActivity extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
@@ -152,7 +154,8 @@ public class MainActivity extends AppCompatActivity {
        setupTabIcons();
 
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -160,6 +163,38 @@ public class MainActivity extends AppCompatActivity {
                 AddNewShareDialog addShareDialog = new AddNewShareDialog();
                 //addShareDialog.
                 addShareDialog.show(getSupportFragmentManager(), "Add New Share");
+
+            }
+        });
+
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            private  int state = 0;
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+                switch (position){
+                    case 0:
+                        fab.setVisibility(View.VISIBLE);
+                        break;
+                    case 1:
+                        fab.setVisibility(View.INVISIBLE);
+                        break;
+                    default:
+                        fab.setVisibility(View.INVISIBLE);
+                        break;
+                }
+
+
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
 
             }
         });

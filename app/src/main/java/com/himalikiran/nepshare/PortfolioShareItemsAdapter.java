@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.himalikiran.nepshare.models.Stocks;
+
 import java.util.ArrayList;
 
 /**
@@ -41,14 +43,18 @@ public class PortfolioShareItemsAdapter extends ArrayAdapter<PortfolioItems>{
         // set this text on the name TextView
         symbolTextView.setText(currentItem.getSymbol());
 
+        TextView priceTextView = (TextView) listItemView.findViewById(R.id.priceText);
+
+        priceTextView.setText(String.format("%.2f",currentItem.getLastPrice()));
+
         // Find the TextView in the NEPSE_list_itemt_item.xml layout with the ID version_number
         TextView quantityTextView = (TextView) listItemView.findViewById(R.id.quantityText);
         // Get the version number from the current AndroidFlavor object and
         // set this text on the number TextView
         quantityTextView.setText(Integer.toString(currentItem.getQuantity()));
 
-        TextView priceTextView = (TextView) listItemView.findViewById(R.id.priceText);
-        priceTextView.setText(String.format("%.2f",(currentItem.getPrice())));
+        TextView buyPriceTextView = (TextView) listItemView.findViewById(R.id.buyPriceText);
+        buyPriceTextView.setText(String.format("%.2f",(currentItem.getPrice())));
 
 
         TextView netGainTextView = (TextView) listItemView.findViewById(R.id.netGainText);

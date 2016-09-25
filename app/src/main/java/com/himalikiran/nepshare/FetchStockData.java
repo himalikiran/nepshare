@@ -47,7 +47,7 @@ public class FetchStockData {
                         for (int x = 0; x <= 50; x++) {
                             List<String> stockData = Arrays.asList(rows.get(x).split("\\s"));
                             float change = (Float.valueOf(stockData.get(6))).floatValue();
-                            stocks.add(new Stocks(stockData.get(0), stockData.get(1), change));
+                           // stocks.add(new Stocks(stockData.get(0), stockData.get(1), change));
 
                         }
                     }
