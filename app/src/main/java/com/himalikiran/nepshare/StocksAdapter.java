@@ -38,13 +38,13 @@ public class StocksAdapter extends ArrayAdapter<Stocks> {
 
 
         // Find the TextView in the nepse_list_item.xmlem.xml layout with the ID version_name
-        TextView titleTextView = (TextView) listItemView.findViewById(R.id.symbolText);
+        TextView titleTextView = (TextView) listItemView.findViewById(R.id.symbolTextView);
         // Get the version name from the current AndroidFlavor object and
         // set this text on the name TextView
         titleTextView.setText(currentStock.getCompany());
 
         // Find the TextView in the nepse_list_item.xmlem.xml layout with the ID version_number
-        TextView subTitleTextView = (TextView) listItemView.findViewById(com.himalikiran.nepshare.R.id.priceText);
+        TextView subTitleTextView = (TextView) listItemView.findViewById(R.id.priceTextView);
         // Get the version number from the current AndroidFlavor object and
         // set this text on the number TextView
         subTitleTextView.setText(String.format("%.2f", currentStock.getPrice()));
@@ -67,11 +67,11 @@ public class StocksAdapter extends ArrayAdapter<Stocks> {
             subTitleTextView.setTextColor(listItemView.getResources().getColor(com.himalikiran.nepshare.R.color.priceIncrease));
         }
 
-        TextView totalDiff = (TextView) listItemView.findViewById(com.himalikiran.nepshare.R.id.totalDiff);
+        TextView totalDiff = (TextView) listItemView.findViewById(R.id.totalDiffView);
         totalDiff.setText(Double.toString(currentStock.getDiff()));
 
 
-        TextView percentChange = (TextView) listItemView.findViewById(com.himalikiran.nepshare.R.id.percentChange);
+        TextView percentChange = (TextView) listItemView.findViewById(R.id.percentChangeView);
         percentChange.setText("( " + String.format("%.2f",currentStock.getPercent())+"% )");
 //        percentChange.setText("( " + Float.toString(percent)+"% )");
 

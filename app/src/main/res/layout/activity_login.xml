@@ -156,32 +156,16 @@
 
             <com.google.android.gms.common.SignInButton
                 android:id="@+id/google_sign_in_button"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:layout_weight="1"
-                android:paddingRight="4dp"
+                android:paddingRight="8dp"
                 android:textAllCaps="true"
-                android:visibility="visible" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:padding="12dp"
-                android:text="|"
-                android:textSize="24sp" />
+                android:visibility="visible"
+                android:text="Sign in with Google"
+                android:gravity="center_horizontal|top"/>
 
 
-            <com.facebook.login.widget.LoginButton
-                android:id="@+id/facebook_sign_in_button"
-                android:layout_width="0dp"
-                android:layout_height="100dp"
-                android:paddingTop="15dp"
-                android:paddingBottom="15dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:textStyle="bold"
-                android:layout_weight="1" />
         </LinearLayout>
 
 

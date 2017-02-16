@@ -6,6 +6,7 @@ package com.himalikiran.nepshare;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -13,6 +14,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 
 public class SignupActivity extends AppCompatActivity {
@@ -23,6 +30,7 @@ public class SignupActivity extends AppCompatActivity {
     private EditText _passwordText;
     private Button _signupButton;
     private TextView _loginLink;
+    private FirebaseAuth mAuth;
 
 
     @Override
@@ -73,7 +81,21 @@ public class SignupActivity extends AppCompatActivity {
         String email = _emailText.getText().toString();
         String password = _passwordText.getText().toString();
 
-        // TODO HIMALI: Signup logic here.
+       // [START create_user_with_email]
+        mAuth = FirebaseAuth.getInstance();
+
+        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                Log.d(TAG, "createUserWithEmail:onComplete:" + task.isSuccessful());
+                if (!task.isSuccessful()) {
+                    Toast.makeText(SignupActivity.this, R.string.auth_failed,
+                            Toast.LENGTH_SHORT).show();
+                }
+
+                //hideProgressDialog();
+            }
+        });
 
         new android.os.Handler().postDelayed(
                 new Runnable() {

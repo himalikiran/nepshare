@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/searchListStrip"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="12dp"
+    android:paddingBottom="12dp">
+
+
+        <TextView
+            android:id="@+id/searchCompanyNameText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:layout_weight="1"
+            android:textSize="12sp"
+            tools:text="Agriculture Development Bank Limited Development Bank Limited"/>
+
+        <ToggleButton
+            android:id="@+id/favButton"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="-2dp"
+            android:layout_gravity="right"
+            android:textOff=""
+            android:textOn=""
+            style="@style/toggleButton"
+            android:background="@drawable/ic_toggle_bg"/>
+</LinearLayout>

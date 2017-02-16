@@ -7,8 +7,8 @@
     android:layout_height="match_parent"
     android:background="@color/pagerBackground">
 
-    <ListView
-        android:id="@+id/stockList"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/liveStockList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:dividerHeight="1dp"

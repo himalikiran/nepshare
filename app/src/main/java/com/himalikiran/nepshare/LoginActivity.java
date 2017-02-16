@@ -8,7 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import android.util.Log;
+
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -18,8 +18,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.facebook.FacebookSdk;
-import com.facebook.login.widget.LoginButton;
+
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -30,12 +29,13 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 
 import com.google.android.gms.tasks.Task;
-import com.google.android.gms.vision.text.Text;
+
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 /**
@@ -52,6 +52,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     private static final int RC_SIGN_IN = 9001;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+    private FirebaseDatabase mDatabase;
     // UI references.
     private AutoCompleteTextView mEmailView;
     private TextInputEditText mPasswordView;
@@ -60,14 +61,12 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     private EditText mSignUPButton;
     private SignInButton mGoogleSignInButton;
     private GoogleApiClient mGoogleApiClient;
-    private LoginButton mFacebookSignInButton;
     private TextView mSignupLink; //Rochan
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
-        FacebookSdk.sdkInitialize(getApplicationContext());
-//        AppEventsLogger.activateApp(this);
         setContentView(R.layout.activity_login);
 
         // Set up the login form.
@@ -76,15 +75,14 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         mPasswordView = (TextInputEditText) findViewById(R.id.password);
 
 
+
         // Assign fields
         mGoogleSignInButton = (SignInButton) findViewById(R.id.google_sign_in_button);
-        mFacebookSignInButton = (LoginButton)findViewById(R.id.facebook_sign_in_button);
 
         mSignupLink = (TextView) findViewById(R.id.link_signup); //Rochan
 
         // Set click listeners
         mGoogleSignInButton.setOnClickListener(this);
-        mFacebookSignInButton.setOnClickListener(this);
         mSignupLink.setOnClickListener(this);
 
         // [START config_signin]

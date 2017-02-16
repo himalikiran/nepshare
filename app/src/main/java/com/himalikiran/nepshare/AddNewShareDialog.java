@@ -14,6 +14,8 @@ import android.view.Window;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import com.google.firebase.auth.FirebaseAuth;
+import android.widget.ArrayAdapter;
+
 /**
  * Created by himalikiran on 8/26/2016.
  */
@@ -25,9 +27,16 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.himalikiran.nepshare.models.Share;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+import com.himalikiran.nepshare.models.Companies;
+import com.himalikiran.nepshare.models.PortfolioItems;
+
+import java.util.ArrayList;
 
 public class AddNewShareDialog extends DialogFragment implements OnClickListener{
 
@@ -38,6 +47,9 @@ public class AddNewShareDialog extends DialogFragment implements OnClickListener
     private EditText mPriceText;
     private Spinner mShareType;
     private RadioGroup mRadioShareType;
+    private DatabaseReference mCompanyReference;
+
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
 
 
     private DatabaseReference mDatabase;
@@ -59,6 +71,13 @@ public class AddNewShareDialog extends DialogFragment implements OnClickListener
         mBtnCancel.setOnClickListener(this);
         mBtnSave.setOnClickListener(this);
 
+        // [START initialize_auth]
+        mAuth = FirebaseAuth.getInstance();
+        // [END initialize_auth]
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mUser = mAuth.getCurrentUser();
+        // [END initialize_database_ref]
+
 
         //Data captured from form
         mSymbolTextView = (AutoCompleteTextView)view.findViewById(R.id.symbText);
@@ -66,26 +85,38 @@ public class AddNewShareDialog extends DialogFragment implements OnClickListener
         mPriceText =(EditText)view.findViewById(R.id.priceText);
         mShareType = (Spinner)view.findViewById(R.id.shareType);
 
+        mCompanyReference = mDatabase.child("Companies");//.child("Company");
+
+        Query mQuery = mCompanyReference.orderByChild("Company");
 
 
-        //mRadioShareType = (RadioGroup) view.findViewById(R.id.radioShareType);
-        //mRadioShareType.clearCheck();
-        // [START initialize_database_ref]
+        final ArrayList<String> mShareItems = new ArrayList<String>();
+        final ArrayAdapter itemsAdapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_dropdown_item_1line, mShareItems);
 
-        // [START initialize_auth]
-        mAuth = FirebaseAuth.getInstance();
-        // [END initialize_auth]
+        mSymbolTextView.setAdapter(itemsAdapter);
+        mCompanyReference.addValueEventListener(new ValueEventListener(){
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String companyName;
+                String companySymbol;
+                for (DataSnapshot postSnapshot: dataSnapshot.getChildren()) {
+                    companyName = postSnapshot.child("Company").getValue(String.class);
+                    companySymbol = postSnapshot.child("Symbol").getValue(String.class);
+                    mShareItems.add(companySymbol + "-" +companyName);
+                }
+                itemsAdapter.notifyDataSetChanged();
+            }
 
-        mDatabase = FirebaseDatabase.getInstance().getReference();
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
 
-        mUser = mAuth.getCurrentUser();
+            }
+        });
 
-        // [END initialize_database_ref]
-
-        // data field controls
 
         return view;
     }
+
 
     public void onClick(View v) {
         switch (v.getId()) {
@@ -93,6 +124,18 @@ public class AddNewShareDialog extends DialogFragment implements OnClickListener
                 this.dismiss();
                 break;
             case R.id.btnSave:
+                if (mSymbolTextView.getText().toString().matches("")){
+                    Toast.makeText(this.getContext(), "Stock symbol can not be blank!",Toast.LENGTH_LONG).show();
+                    break;
+                }
+                if (mQtyText.getText().toString().matches("")){
+                    Toast.makeText(this.getContext(), "Quantity can not be blank!",Toast.LENGTH_LONG).show();
+                    break;
+                }
+                if ((!mShareType.getSelectedItem().toString().matches("Bonus")) && mPriceText.getText().toString().matches("")){
+                    Toast.makeText(this.getContext(), "Price can not be blank!",Toast.LENGTH_LONG).show();
+                    break;
+                }
                 addNewShare();
                 Toast.makeText(this.getContext(), "New Share has been added!",Toast.LENGTH_LONG).show();
                 this.dismiss();
@@ -110,15 +153,23 @@ public class AddNewShareDialog extends DialogFragment implements OnClickListener
 
     public void addNewShare(){
         String uid = mUser.getUid();
-        String smb = mSymbolTextView.getText().toString();
+        String companyText = mSymbolTextView.getText().toString();
+
+        String[] parts = companyText.split("-");
+        String symb = parts[0];
+
         int qty = Integer.parseInt(mQtyText.getText().toString());
-        double price = Double.parseDouble(mPriceText.getText().toString());
+
+        double buyPrice=0;
+
+        if (!(mPriceText.getText().toString().matches(""))){
+            buyPrice = Double.parseDouble(mPriceText.getText().toString());
+        }
+
         String sType = mShareType.getSelectedItem().toString();
 
-        Share share = new Share( uid, smb, qty, price, sType);
-
-        mDatabase.child("Users").child(uid).child("Portfolio").push().setValue(share);
-        //mDatabase.child("portfolio").setValue(share);
+        PortfolioItems share = new PortfolioItems( symb, qty, buyPrice, sType);
+        mDatabase.child("Portfolio").child(uid).push().setValue(share);
     }
 
 

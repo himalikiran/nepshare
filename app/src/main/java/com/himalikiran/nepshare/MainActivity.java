@@ -1,6 +1,7 @@
 package com.himalikiran.nepshare;
 
 import android.content.Intent;
+import android.database.DatabaseUtils;
 import android.graphics.Bitmap;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -24,23 +25,26 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
-import static com.google.android.gms.analytics.internal.zzy.t;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 public class MainActivity extends AppCompatActivity {
+
+
     private DrawerLayout mDrawerLayout;
    // private ListView mDrawerList;
     private TabLayout tabLayout;
    // private ActionBarDrawerToggle mDrawerToggle;
     private CharSequence mDrawerTitle;
     private CharSequence mTitle;
+    private FirebaseDatabase mDatabase;
    // private String mPhotoUrl;
     private int[] tabIcons = {
             R.drawable.ic_portfolio,
@@ -61,6 +65,18 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+//        if (mDatabase == null) {
+//            FirebaseDatabase database = FirebaseDatabase.getInstance();
+//            database.setPersistenceEnabled(true);
+//            //mDatabase = database.getReference();
+//            // ...
+//        }
+
+
+        DatabaseUtil.getDatabase();
+        //FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -77,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
         View header=navView.getHeaderView(0);
         final TextView userNameView = (TextView)header.findViewById(R.id.userNamePlaceHolder);
         final ImageView profilePicture = (ImageView)header.findViewById(R.id.profilePicture);
+
 
 
         // [START initialize_auth]
@@ -137,7 +154,7 @@ public class MainActivity extends AppCompatActivity {
         toggle.syncState();
 
 
-        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+        final ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
 
         // Create an adapter that knows which fragment should be shown on each page
         TabAdapter tabAdapter = new TabAdapter(this, getSupportFragmentManager());
@@ -159,10 +176,20 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                switch (view.getId()){
+                    case R.id.fab:
+                        if(viewPager.getCurrentItem() == 0){
+                            AddNewShareDialog addShareDialog = new AddNewShareDialog();
+                            //addShareDialog.
+                            addShareDialog.show(getSupportFragmentManager(), "Add New Share");
+                        }
+                        else if (viewPager.getCurrentItem() == 1){
+                            AddNewWatchlistItemDialog addWatchlistDialog = new AddNewWatchlistItemDialog();
+                            //addShareDialog.
+                            addWatchlistDialog.show(getSupportFragmentManager(), "Add New Watchlist Item");
+                        }
+                }
 
-                AddNewShareDialog addShareDialog = new AddNewShareDialog();
-                //addShareDialog.
-                addShareDialog.show(getSupportFragmentManager(), "Add New Share");
 
             }
         });
@@ -182,7 +209,7 @@ public class MainActivity extends AppCompatActivity {
                         fab.setVisibility(View.VISIBLE);
                         break;
                     case 1:
-                        fab.setVisibility(View.INVISIBLE);
+                        fab.setVisibility(View.VISIBLE);
                         break;
                     default:
                         fab.setVisibility(View.INVISIBLE);
@@ -244,6 +271,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
+        //FirebaseDatabase.getInstance().setPersistenceEnabled(true);
         mAuth.addAuthStateListener(mAuthListener);
     }
 
@@ -259,5 +287,18 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, LoginActivity.class));
     }
 
+    @Override
+    protected void onPause() {
+        if (mAuthListener != null) {
+            mAuth.removeAuthStateListener(mAuthListener);
+        }
+        super.onPause();
+    }
 
+    @Override
+    protected void onResume() {
+        //FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+        super.onResume();
+        mAuth.addAuthStateListener(mAuthListener);
+    }
 }

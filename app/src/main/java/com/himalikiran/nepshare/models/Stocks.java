@@ -1,7 +1,5 @@
 package com.himalikiran.nepshare.models;
 
-import static com.google.android.gms.analytics.internal.zzy.d;
-
 /**
  * Created by himalikiran on 7/31/2016.
  */
@@ -10,6 +8,7 @@ public class Stocks {
      * Name of the Compaly listed in Nepal Stock Exchange.
      */
     private String company;
+    private String companyFullName;
     private double price;
     private double diff;
     private double percent;
@@ -31,14 +30,25 @@ public class Stocks {
         this.diff = diff;
     }
 
+
     /**
     * Get the company name
     */
     public String getCompany(){
+        //company = "Agriculture Development Bank Limited";
         return this.company;
     }
 
-     /**
+    /**
+     * Get the companyFullName name
+     */
+//    public String getCompanyFullName(){
+//       // companyFullName = "Agriculture Development Bank Limited";
+//        return this.companyFullName;
+//    }
+
+
+    /**
      * Get the price
      */
     public double getPrice(){
@@ -51,8 +61,12 @@ public class Stocks {
     public double getDiff(){ return this.diff;}
 
     public double getPercent(){
+        try{
+            double percent = this.diff / (getPrice() - this.diff) ;
 
-               double percent = this.diff / (getPrice() - this.diff) ;
+        } catch (Exception e){
+            double percent = 0;
+        }
 
         return percent;
     }

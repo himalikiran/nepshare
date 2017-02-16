@@ -1,6 +1,5 @@
 package com.himalikiran.nepshare.models;
 
-import static com.google.android.gms.analytics.internal.zzy.d;
 
 /**
  * Created by himalikiran on 9/21/2016.

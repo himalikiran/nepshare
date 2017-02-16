@@ -12,4 +12,5 @@
         <color name="secondary_text">#009688</color>
         <color name="white">#FFFFFF</color>
         <color name="pagerBackground">#DDDDDD</color>
+        <color name="stripColor">#f8f8f8</color>
 </resources>

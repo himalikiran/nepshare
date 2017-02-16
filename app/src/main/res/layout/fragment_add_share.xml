@@ -35,58 +35,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/priceText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Price" />
+        <EditText
+            android:id="@+id/priceText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Price" />
     </android.support.design.widget.TextInputLayout>
-    <!--<TextView-->
-    <!--android:id="@+id/tv"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:text="Share Type"-->
-    <!--android:textSize="18sp" />-->
 
-
-
-<!--<RadioGroup-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--&gt;-->
-<!--<LinearLayout-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:orientation="horizontal">-->
-    <!--<RadioButton-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="Primary"-->
-        <!--android:layout_weight="1"-->
-        <!--/>-->
-    <!--<RadioButton-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="Secondary"-->
-        <!--android:layout_weight="1"-->
-        <!--/>-->
-
-<!--</LinearLayout>-->
-
-
-
-    <!--<RadioButton-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="Bonus"-->
-        <!--/>-->
-
-    <!--<RadioButton-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="Right"-->
-        <!--/>-->
-    <!--</RadioGroup>-->
     <Spinner
         android:id="@+id/shareType"
         android:layout_width="fill_parent"

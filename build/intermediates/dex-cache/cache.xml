@@ -1,0 +1,689 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.android.support\palette-v7\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="734e80dffea7bd76c18ae256822a124c30d85850">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-palette-v7-24.0.0_83227e5a6fd9e6a609149fab24d8df187b564f87\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hbhusal\.gradle\caches\modules-2\files-2.1\com.github.bumptech.glide\glide\3.7.0\9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4\glide-3.7.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\glide-3.7.0_aafd4dfe4864f87e85fdf2dabb5bccd00dae79ac\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d0460bf07cc3657e0be518ca01c174493951c6b8">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-ads-10.0.1_cc7f9a7a2e014912dca6087bd68ec7bacd831614\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hbhusal\.gradle\caches\modules-2\files-2.1\com.firebase\tubesock\0.0.11\d37cb67277928cf59344b4196af8d9cee1f1a27c\tubesock-0.0.11.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d37cb67277928cf59344b4196af8d9cee1f1a27c">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\tubesock-0.0.11_e509beba6064a44e88d2853df41bc58db54dffb2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="486371f97baad8e607f332f20fee1d3dd00a731a">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-iid-10.0.1_f6971a8c1d1169a8ba351f0745e492f9261a5344\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.google.firebase\firebase-crash\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="de29a39f9260f88151b1ef453140e71c76b6c415">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-crash-10.0.1_8ff4910c0891ba1e14cbda0dc25bfe96a4fc0bcd\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="909d06689a2d470611bf69fe71c40de2042b3f39">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_78b09620a9df85f5d71e6e3e9b9b77313f9399fa\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ca3c7aa31e2726a400a6e552b93cb9f63c9a1e6d">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-25.1.0_16726fe92e170d3e75a5293b2ef02e8b8517ff45\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="433f4d6aa5f21f19552afe0e6c5eff0fedba73ad">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-10.0.1_428e4d5d5d1b690c5254c8bf23691a5882fa17d4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads-lite\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b955cb3a1ad6f1b6ff728ce1e0cd592c1717b440">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-ads-lite-10.0.1_8391df529189049812ced28f85ad071dc683a7e7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8f128aeeb7e31271b28a7adb9dac1f3a6ed9f5e7">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-10.0.1_b9882c4d7bec9d2d7d3c586103dd061b3f1cf10b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hbhusal\.gradle\caches\modules-2\files-2.1\com.firebase\firebase-client-android\2.3.1\be29b24233711c419ce935aa0a1b12ebc49d1c9a\firebase-client-android-2.3.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="be29b24233711c419ce935aa0a1b12ebc49d1c9a">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\firebase-client-android-2.3.1_f62b38dbd4c053e1b07cd00077a3c3e925603625\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage-common\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="09cf6aa1390f95157e8295d02be7868f568825fc">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-storage-common-10.0.1_be7720c149fbc4f6e8fe1baf06d794c7fb4d2fd5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6addaba208e21c6da776d0ca75b6b23a6ccd5499">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tasks-10.0.1_f414fbf808a0325e989427ebe4509d2aaa293ead\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="27777b3cad3c20b1acab19f6e37fe3e03371bf6e">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-maps-10.0.1_90ff3f902fa9e6036a0c19c87a35d626e5e6b0cd\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-instantapps\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="45305e6af414dab5aba6c3225081c2f15c3bdd1e">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-instantapps-10.0.1_439bd6aa98c815ab99f4beb0d606f063e8c99b91\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hbhusal\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-annotations\2.2.2\285cb9c666f0f0f3dd8a1be04e1f457eb7b15113\jackson-annotations-2.2.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="285cb9c666f0f0f3dd8a1be04e1f457eb7b15113">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\jackson-annotations-2.2.2_ca0e33e915a282ad56762b90eaf1712fdc5ec264\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager-v4-impl\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f23ad0f8e58713ff4b55f61c0bbde3830378347c">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tagmanager-v4-impl-10.0.1_2ce834d85e95d3d7323c31650f0faaf8b062f538\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b327fbe2fad414bc38cf0ce8f7efe1a38f572837">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-mediarouter-v7-24.0.0_0cd2c1c455b7427bdc817e5640682e50ce6f2356\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database-connection\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8010ae6ed32828a145b25ec97bc07b7a83c6318f">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-connection-10.0.1_7111fed9784c5409d7626dee167771446409dabb\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1630658fbc2d222b988603c27b4a4249586fbfe7">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-25.1.0_3dc2df282586f20fd831c9504d20b2d248e87760\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e79aa3d9a16f8c9f16377c0608de70a8f31e5d80">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-25.1.0_cce50347d85cdca8a2c8ce0c73421fb502a393f8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f6cf557be4dbd0282ea2388633e5378634423226">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-safetynet-10.0.1_f30ae3c225c308f394a1681f93c7b69613c5b868\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics-impl\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e871881b36b32e6bfd271a830c6eeb54ff0fc185">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-analytics-impl-10.0.1_076983639813761e7ce931d9912a1e70d6c5fefb\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f02263e35e52668dd17b73bf961437e3d562b35f">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-25.1.0_af00704fa3f370e8bdd4063d6c43df2da108d28d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-fitness\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7a64bf6dc775198eed9db9468a133adf7dfe6562">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-fitness-10.0.1_c6371546e9ed1e8c1e88f84fb4a2713561131c8e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.google.firebase\firebase-config\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ffc15e965a9e8c28f24455eedd4cac215c45d1fc">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-config-10.0.1_b943f009caab8bfad5f8835bd592ae9f224a2d7d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-clearcut\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1d193729baf37df3d902a423291423a0df7e3779">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-clearcut-10.0.1_943b67f50ee67869dd226085a50c935cbd86fef3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="92c871a22463a247e8a77a9f3fd231c278788c4a">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-panorama-10.0.1_d8e20f78304f9e555c1fd824f12f935f9a668ee9\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="9cca2818594cc5348806d6662133491e7ea0fa8d">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-10.0.1_a8cfae519109ccdff5a8a9fef2a0e8a9bf6fbd79\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-places\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f3e51e9c5233b8897f61e08a6a27bc36283c2724">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-places-10.0.1_5663e51a1519a3f45437540e4f427b138cbb3b0e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.android.support\multidex\1.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="78ea232052df889856dcb7b7b542707c89bb3bfb">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-multidex-1.0.1_98c78c151a99ed011e540475b18a5a090fe50218\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-awareness\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4385ccc0a88b33d182a836eadb47be55c8eb1107">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-awareness-10.0.1_4402b4f99d52535774a49303e1c17ea0d997bc92\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.google.firebase\firebase-appindexing\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ae80d328a8548b4610ead6c624bab8c6a6984f5b">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-appindexing-10.0.1_a9c8487e609745b641b737507688dfcb14d85d77\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.android.support\design\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-24.2.1_83e8c5390b5ea5666fbef9a856cf8549a90170ee\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2d5d113b0352ab60946fc44c518cf68fd26cbb79">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-wallet-10.0.1_9abb4b8481901b71a974eb9501652847d74440e5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hbhusal\.gradle\caches\modules-2\files-2.1\com.firebase\firebase-client-jvm\2.3.1\4d53b7d6983247af02b8fe7e4228fff555a5e828\firebase-client-jvm-2.3.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4d53b7d6983247af02b8fe7e4228fff555a5e828">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\firebase-client-jvm-2.3.1_b28dd203b6e60eac5a074540873d59fe0289e491\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-vision\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ba6aa5e69ef31dee57208125323cee958fc67565">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-vision-10.0.1_e98efc8762b25adee1e93bc2198086fbc19cb585\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.google.firebase\firebase-common\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="eb0d830e3eabb9deb9ec44869cf7ac7ea1ad794c">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-common-10.0.1_78a4ac832ac6d3023440fff59ed311d15e246a1d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="dd39827d2067497e60e21da48a7926000b6d4b0c">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-storage-10.0.1_44576f85f693a86b71c17ba0070f8b04255894c9\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hbhusal\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-databind\2.2.2\3c8f6018eaa72d43b261181e801e6f8676c16ef6\jackson-databind-2.2.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="3c8f6018eaa72d43b261181e801e6f8676c16ef6">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\jackson-databind-2.2.2_2e7ad70b4ca72e79445d24d77f3253d00cc485fc\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth-base\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e96c6974cf924e7ee3b230e6847d5731423388c9">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-base-10.0.1_2911f9d19a65fc574c366f96662747df580eda9e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.firebaseui\firebase-ui-database\1.1.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4e7ccc1d51d89540ea7ad426a1934204b674939b">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.firebaseui-firebase-ui-database-1.1.1_9eb9c88f604ab7fdebb35e39cf55e04d526e23c4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-25.1.0_23013dfc334d9bef092d37440875dd62a9c9e77f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c14f0c89f28cf782e42581ab0aba5f63af39b3d2">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-plus-10.0.1_7a7bbde2daa75bbfcb14ac48df5dd47cc3579140\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hbhusal\.gradle\caches\modules-2\files-2.1\org.jsoup\jsoup\1.9.2\5e3bda828a80c7a21dfbe2308d1755759c2fd7b4\jsoup-1.9.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="5e3bda828a80c7a21dfbe2308d1755759c2fd7b4">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\jsoup-1.9.2_56842e8e5f4e0d6437a79d3b11d78dcc08b4be81\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="25438f55fc6d906a0e72f30b21487541430ede43">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-base-10.0.1_49cd59b9d7c44d8214cc91cd1e232117eded6653\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast-framework\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="df1cb17511aabbb63264a0024949d1e42502a512">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-cast-framework-10.0.1_89275674d08f12d81f8992235f3e9a114cb7b3a0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gass\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="57c2eceb8548de84509d1ebc293fedec53231f6c">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-gass-10.0.1_c7fe55b9c7e5f019ee4959a4212429e2f41aefc4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8308ed003522a2ee8958311afcc4cfd0470377cd">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-gcm-10.0.1_426d26c166676afe4f416baf3781db22b3dcbef5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\24.0.0\jars\libs\internal_impl-24.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b6763651ec29b4c95e7bbe63fc393ffcc8c4c2c5">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.0.0_7aa2b2f0de52434aba82a9967f99ab27ea915aec\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8dd49930e4f9dde1a42d37e362b9fea8b1b69c0d">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-cardview-v7-24.0.0_6022112773abe5551e045d4b2570556c1d0cd24e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="aee64634871d88a419d59eb743c1258a60f19700">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-25.1.0_7b5fd317b81cf71bcb7875d7e7bfb2c8d239dea2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="028f8255cb977b29cdffbfcf05caa0459686120c">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-drive-10.0.1_fb5a4668fdb6ceac2d3636fea58786677848623b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4c829ff0ccfecb28a999ee46d9e75948dfc777a4">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-analytics-10.0.1_b00cd8145a732808f4e50ad279c36a70e729f426\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager-api\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b1df8fa3d372a27e4e969ce00b00689ee1eed031">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tagmanager-api-10.0.1_fde0c0047e1629a7fc53c2822803db854d440b7c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-identity\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a48dc0b148059764d32500be558702d5ff932058">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-identity-10.0.1_f64904514d71834251d6dfd1b2c40e770edf5e7b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hbhusal\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-core\2.2.2\d20be6a5ddd6f8cfd36ebf6dea329873a1c41f1b\jackson-core-2.2.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d20be6a5ddd6f8cfd36ebf6dea329873a1c41f1b">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\jackson-core-2.2.2_52a932061c7afc7b4762c999b9e6affdae3ff53e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-iid\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6bb5d347ebc0c6ef3c83a905222a688da5d2f7b4">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-iid-10.0.1_b8ddb3ae572fd038268ac3bd37ed93746bc4ccf8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="44a694d4095be84c2888764b1f7256b385c030ad">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-location-10.0.1_85de4b83777a2940162ce0d9b055fe134e6856df\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="408a599ac77cd17fe8e8919326bec617b3d005bd">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-wearable-10.0.1_c954129b1b4d7e66f2980099f50ff6a2f5cc6075\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e2185aff89caeb337b1ffc36d5e525d8318e7cfe">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-10.0.1_ee03ac2eee51fb8d4d2b2a7df78cc5bf48287e30\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="771267c5b0c7a5b348d3205dcfa1f871af7e0177">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-cast-10.0.1_c15e020b3825cfb3c1c396f9d0c51405a245c944\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="971509bbe30bb7b971fc1c49d7b23d0d818830ac">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tagmanager-10.0.1_bf14259015f2dd45756cc7d4fdb1b702b1c265ec\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2a53c4f3518116b8c6aee0e477233f0f7da8616f">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-25.1.0_57d78d978f861b6448b95496dfa73192024dcf7e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0a0ef86b7fa568a52bf6214a0326ca1f1d618da7">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-25.1.0_915ac448950644802318b741c71408edc9717b41\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6116e0e7069de7fc259aac8e08b84f32c2038231">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-impl-10.0.1_cdc61067154b673c2bca315dff4377df7aa8a76e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="756f6297eef79784f5e356dcd4f39865028b2bd0">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-10.0.1_9fec28c688c29d92020dd4e7d120c79395287d1f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\hbhusal\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.1.0\support-annotations-25.1.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="64cb6b229a8bdfd907bc8dd46839a0053e4c018d">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.1.0_9cda7b384261d44ba475e4a79e182eacb5de1b22\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appinvite\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="39907d5c8f5902fffef30160ca7447c93b82405c">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-appinvite-10.0.1_0cd07b3f1e2eada8e2aa48c171dfcdcd5031231b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.google.firebase\firebase-messaging\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4b17463c814bdc562fb0392fa3494063623a0904">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-messaging-10.0.1_3a77798842597d961ffebef23953bbad0a54d67a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c6e1f361e9d61aece9dac39b77fcc98a337a144d">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-nearby-10.0.1_020871b48fa96551019379d8060067a50a7a7d9d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1e11c68fec92a17c84dd8d1dd80e74c4e67b12e2">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-games-10.0.1_50bd81c8bbf52a037131a5a570f3bd8f12ebae9d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b266c8faa5af72e579b9da36ef35053ffed6ac64">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-25.1.0_dac57c020ac9d97474b38aa56da627e2f0a1b8cd\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="657c51747b378e7105692e52dfb4cdfa34ae67e9">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_395059bb2d0da1db31cba984420a36eaf75324a7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="F:\NEPShare\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6fb6ac3e8d3b9013819920d9ea11f3803c4c0033">
+        <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-25.1.0_edf77b185627d5bd12a2be09e0b89e5e27416021\classes.dex" />
+    </item>
+
+</items>
