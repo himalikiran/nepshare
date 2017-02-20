@@ -82,12 +82,11 @@ public class FetchStockDataService extends IntentService {
                             }
                             double per= 0;
                             try {
-                                per = diff / lastPrice * 100;
+                                per = diff / (lastPrice-diff) * 100;
                             } catch (Exception e){
                                 per = 0;
                             }
                             Stocks stock = new Stocks(stockData.get(0), lastPrice, diff, per);
-                            //stocks.add(new Stocks(stockData.get(0), lastPrice, change));
                             mDatabase.child("Stocks").child(stockData.get(0)).setValue(stock);
 
                         }
