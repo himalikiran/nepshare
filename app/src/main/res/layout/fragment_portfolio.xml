@@ -88,7 +88,7 @@
                     style="@style/portfolioDisplayPercent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Net Worth" />
+                    android:text="Total Worth" />
 
                 <TextView
                     android:id="@+id/netWorth"
@@ -96,7 +96,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text="Rs. 8,82,54,524.55" />
+                    android:text="Rs. 00.00" />
 
             </LinearLayout>
         </android.support.v7.widget.CardView>
@@ -148,7 +148,7 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:layout_marginLeft="4dp"
-                        android:src="@drawable/arrow_up" />
+                        />
 
                     <TextView
                         android:id="@+id/netGainPercent"
@@ -166,7 +166,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text="Rs. 4,12,54,524.25"
+                    android:text="00.00"
                     android:textColor="#009a48" />
 
             </LinearLayout>

@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,12 +21,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.himalikiran.nepshare.models.PortfolioItems;
-import android.database.DatabaseUtils;
-import com.himalikiran.nepshare.models.CurrentPrice;
-import com.himalikiran.nepshare.models.Stocks;
+import com.himalikiran.nepshare.models.TotalInvestment;
+import com.himalikiran.nepshare.models.TotalWorth;
 
 import java.text.DecimalFormat;
-import java.util.Map;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -40,6 +37,7 @@ public class PortfolioFragment extends Fragment {
 
     private TextView mTotalInvestmentView;
     private TextView mTotalWorthView;
+    private TextView mNetGainView;
 
     private FirebaseAuth mAuth;
     private FirebaseUser mUser;
@@ -48,8 +46,15 @@ public class PortfolioFragment extends Fragment {
 
     private double mTotalInvestment;
     private double mTotalWorth;
-    private double mCurrentPrice;
+
+    private ImageView mArrowNetGain;
+
+    private double mNetWorth;
+    private double mNetInv;
+
     private FirebaseDatabase mDatabase;
+    private DatabaseReference mRef;
+
     public PortfolioFragment() {
         // Required empty public constructor
     }
@@ -66,15 +71,16 @@ public class PortfolioFragment extends Fragment {
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        //mTotalInvestment=0;
+        mDatabase = DatabaseUtil.getDatabase();
+        mRef = mDatabase.getReference();
 
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
 
         mTotalInvestmentView = (TextView) rootView.findViewById(R.id.investment);
         mTotalWorthView = (TextView) rootView.findViewById(R.id.netWorth);
-
-        mDatabase = DatabaseUtil.getDatabase();
+        mNetGainView = (TextView) rootView.findViewById(R.id.netGain);
+        mArrowNetGain = (ImageView) rootView.findViewById(R.id.arrowNetGain);
 
        // mShareListView =(ListView)rootView.findViewById(R.id.myStockList);
 
@@ -83,9 +89,14 @@ public class PortfolioFragment extends Fragment {
 
 //       mRecyclerView.addHeaderView(header);
 
-
-
-
+       // getCurrentPrice("NIB");
+       // mTotalWorth =0;
+        if (mUser != null) {
+            populatePortfolio();
+            populateTotalInvestment();
+            calculateTotalWorth();
+            calculateNetGain();
+        }
         return rootView;
     }
 
@@ -101,79 +112,98 @@ public class PortfolioFragment extends Fragment {
     public void onStart() {
         super.onStart();
         if (mUser != null){
-            populatePortfolio();
-            populateTotalInvestment();
-            //calculateTotalWorth();
+            //populatePortfolio();
+            //populateTotalInvestment();
         }
-
-        //populateTotalInvestment();
     }
 
     @Override
     public void onResume() {
         super.onResume();
         if (mUser != null){
-            populatePortfolio();
-            populateTotalInvestment();
-            //calculateTotalWorth();
+           // populatePortfolio();
+            //populateTotalInvestment();
         }
     }
 
 
-    //Calculation for Total Investment goes here
+    //Calculation for Total Investment
     public void populateTotalInvestment(){
 
         DatabaseReference portfolioRef = mDatabase.getReference("Portfolio").child(mUser.getUid());
         portfolioRef.keepSynced(true);
 
 
-        portfolioRef.addValueEventListener(new ValueEventListener() {
+
+        portfolioRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 mTotalInvestment=0;
 
-                mTotalWorth =0;
                 for (DataSnapshot qtySnapshot: dataSnapshot.getChildren()) {
-
-                    String symb = qtySnapshot.child("symbol").getValue(String.class);
-                    double currentPrice = getCurrentPrice(symb);
-
-                    mTotalInvestment = mTotalInvestment + (qtySnapshot.child("quantity").getValue(double.class) * qtySnapshot.child("buyPrice").getValue(double.class));
-                    mTotalWorth = mTotalWorth + (qtySnapshot.child("quantity").getValue(double.class) * currentPrice);
+                    int qty = qtySnapshot.child("quantity").getValue(int.class);
+                    mTotalInvestment = mTotalInvestment + qty * qtySnapshot.child("buyPrice").getValue(double.class);
                 }
+
                 DecimalFormat fm = new DecimalFormat("#,###,###.00");
                 mTotalInvestmentView.setText("Rs. " + fm.format(mTotalInvestment));
-                mTotalWorthView.setText("Rs. "+ fm.format(mTotalWorth));
-            }
 
+                TotalInvestment tInv = new TotalInvestment(mTotalInvestment);
+                mRef.child("TotalInvestment").child(mUser.getUid()).setValue(tInv);
+            }
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
             }
         });
 
-        //calculateTotalWorth();
+
+
     }
 
+    //Calculation for Total Worth
     public void calculateTotalWorth(){
 
-        DatabaseReference portFolioRef = mDatabase.getReference("Portfolio").child(mUser.getUid());
+        final DatabaseReference portfolioRef = mDatabase.getReference("Portfolio").child(mUser.getUid());
+        portfolioRef.keepSynced(true);
 
-        portFolioRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        final DatabaseReference stocksRef = mDatabase.getReference("Stocks");
+        stocksRef.keepSynced(true);
 
+        portfolioRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                mTotalWorth =0;
-                for (DataSnapshot qtySnapshot: dataSnapshot.getChildren()){
-                    String Symb = qtySnapshot.child("symbol").getValue(String.class);
-                    double qty = qtySnapshot.child("quantity").getValue(double.class);
+                for (DataSnapshot ds: dataSnapshot.getChildren()){
+                    String sm = ds.child("symbol").getValue().toString();
+                    final int qt = ds.child("quantity").getValue(int.class);
 
-                   double currentPrice = getCurrentPrice(Symb);
 
-                    mTotalWorth = mTotalWorth + (qty * mCurrentPrice);
-                     }
-                DecimalFormat fm = new DecimalFormat("#,###,###.00");
-                mTotalWorthView.setText("Rs. "+ fm.format(mTotalWorth));
+                    stocksRef.child(sm).addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+
+                            final double pr = dataSnapshot.child("price").getValue(double.class);
+                            mTotalWorth = mTotalWorth + (qt * pr);
+
+
+                            //PortfolioItems share = new PortfolioItems( symb, qty, buyPrice, sType);
+
+
+
+                            //mDatabase.child("Portfolio").child(uid)
+                            DecimalFormat fm = new DecimalFormat("#,###,###.00");
+                            mTotalWorthView.setText("Rs. "+ fm.format(mTotalWorth));
+
+                            TotalWorth tWorth = new TotalWorth(mTotalWorth);
+                            mRef.child("NetWorth").child(mUser.getUid()).setValue(tWorth);
+
+                        }
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    });
+                }
             }
 
             @Override
@@ -181,19 +211,46 @@ public class PortfolioFragment extends Fragment {
 
             }
         });
+
 
     }
 
-    public double getCurrentPrice(String symbol){
 
-        DatabaseReference stockRef = mDatabase.getReference("Stocks").child(symbol);
-        stockRef.keepSynced(true);
+//    Calculate Net gain
+    public void calculateNetGain(){
 
-        stockRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        DatabaseReference nwRef = mDatabase.getReference("NetWorth").child(mUser.getUid());
+        final DatabaseReference invRef = mDatabase.getReference("TotalInvestment").child(mUser.getUid());
+        nwRef.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot priceSnapshot) {
-                Stocks cp  = priceSnapshot.getValue(Stocks.class);
-                mCurrentPrice = cp.getPrice();
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                 final double netWorth = dataSnapshot.child("totalWorth").getValue(double.class);
+
+                invRef.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                       double netInv = dataSnapshot.child("totalInvestment").getValue(double.class);
+
+                        DecimalFormat fm = new DecimalFormat("#,###,###.00");
+                        double netGain = netWorth - netInv;
+
+                        mNetGainView.setText("Rs. "+fm.format(netGain));
+
+                        if (netGain < 0 ){
+                            mNetGainView.setTextColor(getResources().getColor(R.color.priceDecrease));
+                            mArrowNetGain.setBackgroundResource(R.drawable.arrow_down);
+                        }
+                        else if( netGain > 0){
+                            mNetGainView.setTextColor(getResources().getColor(R.color.priceIncrease));
+                            mArrowNetGain.setBackgroundResource(R.drawable.arrow_up);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
 
             }
 
@@ -203,11 +260,12 @@ public class PortfolioFragment extends Fragment {
             }
         });
 
-        return mCurrentPrice;
+
     }
 
     public void populatePortfolio(){
 
+    //final FirebaseDatabase database = FirebaseDatabase.getInstance();
     final String userId = mUser.getUid();
 
     DatabaseReference portfolioCompaniesRef = mDatabase.getReference("Portfolio").child(userId);
@@ -224,7 +282,7 @@ public class PortfolioFragment extends Fragment {
                 protected void populateViewHolder(final portfolioHolder portfolioViewHolder, final PortfolioItems model, int position) {
                     String key = this.getRef(position).getKey();
 
-                    stocksRef.child(model.getSymbol()).addListenerForSingleValueEvent(new ValueEventListener() {
+                    stocksRef.child(model.getSymbol()).addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
                             double currentPrice = dataSnapshot.child("price").getValue(double.class);
@@ -232,14 +290,11 @@ public class PortfolioFragment extends Fragment {
                             double diffPercent = dataSnapshot.child("percent").getValue(double.class);
 
                             double netGainAmount = currentPrice * model.getQuantity();
-                            //mTotalWorth = mTotalWorth +netGainAmount;
-                            //DecimalFormat fm = new DecimalFormat("#,###,###.00");
-                            //mTotalWorthView.setText("Rs. "+ fm.format(mTotalWorth));
 
                             ((TextView) portfolioViewHolder.currentPrice).setText(String.format("%.2f",currentPrice));
-                            ((TextView) portfolioViewHolder.diffText).setText(Double.toString(diffAmount));
+                            ((TextView) portfolioViewHolder.diffText).setText(String.format("%.2f",diffAmount));
                             ((TextView) portfolioViewHolder.percentText).setText("("+String.format("%.2f",diffPercent)+"%)");
-                            ((TextView) portfolioViewHolder.netGainText).setText(Double.toString(netGainAmount));
+                            ((TextView) portfolioViewHolder.netGainText).setText(String.format("%.2f",netGainAmount));
 
 
                             if (diffAmount < 0) {
@@ -263,48 +318,6 @@ public class PortfolioFragment extends Fragment {
                         }
                     });
 
-//                    watchlistRef.child(model.getSymbol()).addListenerForSingleValueEvent(new ValueEventListener() {
-//                        @Override
-//                        public void onDataChange(DataSnapshot dataSnapshot) {
-//                            double sharePrice = 0;
-//                            double shareDiff = 0;
-//                            double sharePercentage = 0;
-//
-//                            if (dataSnapshot.child("price").exists()) {
-//                                sharePrice = dataSnapshot.child("price").getValue(Double.class);
-//                            }
-//                            if (dataSnapshot.child("diff").exists()) {
-//                                shareDiff = dataSnapshot.child("diff").getValue(Double.class);
-//                            }
-//                            if (dataSnapshot.child("percent").exists()) {
-//                                sharePercentage = dataSnapshot.child("percent").getValue(Double.class);
-//                            }
-//
-//
-//                            if (shareDiff < 0) {
-//                                ((TextView) viewHolder.priceText).setTextColor(getResources().getColor(R.color.priceDecrease));
-//                                ((TextView) viewHolder.diffText).setTextColor(getResources().getColor(R.color.priceDecrease));
-//                                ((TextView) viewHolder.percentText).setTextColor(getResources().getColor(R.color.priceDecrease));
-//                                ((ImageView) viewHolder.imgView).setBackgroundResource(R.drawable.arrow_down);
-//                            } else if (shareDiff > 0) {
-//                                ((TextView) viewHolder.priceText).setTextColor(getResources().getColor(R.color.priceIncrease));
-//                                ((TextView) viewHolder.diffText).setTextColor(getResources().getColor(R.color.priceIncrease));
-//                                ((TextView) viewHolder.percentText).setTextColor(getResources().getColor(R.color.priceIncrease));
-//                                ((ImageView) viewHolder.imgView).setBackgroundResource(R.drawable.arrow_up);
-//                            }
-//
-//                            ((TextView) viewHolder.priceText).setText(String.format("%.2f", sharePrice));
-//                            ((TextView) viewHolder.diffText).setText(String.format("%.2f", shareDiff));
-//                            ((TextView) viewHolder.percentText).setText("("+String.format("%.2f", sharePercentage)+"%)");
-//                        }
-//
-//                        @Override
-//                        public void onCancelled(DatabaseError databaseError) {
-//
-//                        }
-//                    });
-
-                    //viewHolder.symbolText.setText("test");
 
                     if (position % 2 == 0) {
                         portfolioViewHolder.stripView.setBackgroundResource(R.color.stripColor);
@@ -316,13 +329,6 @@ public class PortfolioFragment extends Fragment {
                     portfolioViewHolder.quantityText.setText(Integer.toString(model.getQuantity()));
                     portfolioViewHolder.priceText.setText(String.format("%.2f",model.getBuyPrice()));
                     portfolioViewHolder.portfolioShareType.setText(model.getShareType());
-
-                    //double buyPriceTotal = model.getBuyPrice()
-                    //mTotalInvestment = mTotalInvestment + (model.getBuyPrice() * model.getQuantity());
-                    //DecimalFormat fm = new DecimalFormat("#,###,###.00");
-                   // mSnapshot.setText("");
-                    //mTotalInvestmentView.setText("Rs. "+ fm.format(mTotalInvestment));
-
 
                 }
             };
@@ -370,11 +376,6 @@ public class PortfolioFragment extends Fragment {
             percentText = (TextView) v.findViewById(R.id.percentChange);
             netGainText = (TextView) v.findViewById(R.id.netGainText);
             imgViewPortfolio = (ImageView) v.findViewById(R.id.arrowViewPortfolio);
-
-//            companyNameText = (TextView) v.findViewById(R.id.companyNameText); //to display full name of the company
-//
-//
-//            percentText = (TextView) v.findViewById(R.id.percentChangeView);
         }
     }
 }

@@ -49,10 +49,10 @@ public class AddNewShareDialog extends DialogFragment implements OnClickListener
     private RadioGroup mRadioShareType;
     private DatabaseReference mCompanyReference;
 
-    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    FirebaseDatabase mDatabase = DatabaseUtil.getDatabase();
 
 
-    private DatabaseReference mDatabase;
+    private DatabaseReference mRef;
     //private myRef = DatabaseReference.get
 
     private FirebaseAuth mAuth;
@@ -74,7 +74,7 @@ public class AddNewShareDialog extends DialogFragment implements OnClickListener
         // [START initialize_auth]
         mAuth = FirebaseAuth.getInstance();
         // [END initialize_auth]
-        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mRef = mDatabase.getReference();
         mUser = mAuth.getCurrentUser();
         // [END initialize_database_ref]
 
@@ -85,7 +85,7 @@ public class AddNewShareDialog extends DialogFragment implements OnClickListener
         mPriceText =(EditText)view.findViewById(R.id.priceText);
         mShareType = (Spinner)view.findViewById(R.id.shareType);
 
-        mCompanyReference = mDatabase.child("Companies");//.child("Company");
+        mCompanyReference = mRef.child("Companies");//.child("Company");
 
         Query mQuery = mCompanyReference.orderByChild("Company");
 
@@ -169,7 +169,7 @@ public class AddNewShareDialog extends DialogFragment implements OnClickListener
         String sType = mShareType.getSelectedItem().toString();
 
         PortfolioItems share = new PortfolioItems( symb, qty, buyPrice, sType);
-        mDatabase.child("Portfolio").child(uid).push().setValue(share);
+        mRef.child("Portfolio").child(uid).push().setValue(share);
     }
 
 
