@@ -25,6 +25,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
+import java.util.concurrent.ExecutionException;
 
 /**
  * Created by himalikiran on 8/4/2016.
@@ -79,8 +80,13 @@ public class FetchStockDataService extends IntentService {
                             {
                                 System.out.println("NumberFormatException: " + e.getMessage());
                             }
-
-                            Stocks stock = new Stocks(stockData.get(0), lastPrice, diff);
+                            double per= 0;
+                            try {
+                                per = diff / lastPrice * 100;
+                            } catch (Exception e){
+                                per = 0;
+                            }
+                            Stocks stock = new Stocks(stockData.get(0), lastPrice, diff, per);
                             //stocks.add(new Stocks(stockData.get(0), lastPrice, change));
                             mDatabase.child("Stocks").child(stockData.get(0)).setValue(stock);
 

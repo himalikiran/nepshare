@@ -34,7 +34,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="ab66bd7e1f2fda233573933f96e0fe3672b655fe">
+        sha1="6a24a712f229031d6fd194719f4e0685ae52f488">
         <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_78b09620a9df85f5d71e6e3e9b9b77313f9399fa\classes.dex" />
     </item>
     <item
@@ -358,7 +358,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="56e02d2e6fd31997ed1bb5d230010777dfa9669d">
+        sha1="346681a6aca4669007a528f25da4d7517b79144e">
         <dex dex="F:\NEPShare\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_395059bb2d0da1db31cba984420a36eaf75324a7\classes.dex" />
     </item>
     <item

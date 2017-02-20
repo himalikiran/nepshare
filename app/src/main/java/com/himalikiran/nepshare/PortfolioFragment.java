@@ -38,6 +38,9 @@ public class PortfolioFragment extends Fragment {
     private TextView mTotalInvestmentView;
     private TextView mTotalWorthView;
     private TextView mNetGainView;
+    private TextView mDaysGainView;
+    private ImageView mArrowDaysGain;
+    private TextView mDaysGainPercentView;
 
     private FirebaseAuth mAuth;
     private FirebaseUser mUser;
@@ -49,8 +52,8 @@ public class PortfolioFragment extends Fragment {
 
     private ImageView mArrowNetGain;
 
-    private double mNetWorth;
-    private double mNetInv;
+    private double mDaysGain;
+
 
     private FirebaseDatabase mDatabase;
     private DatabaseReference mRef;
@@ -81,7 +84,10 @@ public class PortfolioFragment extends Fragment {
         mTotalWorthView = (TextView) rootView.findViewById(R.id.netWorth);
         mNetGainView = (TextView) rootView.findViewById(R.id.netGain);
         mArrowNetGain = (ImageView) rootView.findViewById(R.id.arrowNetGain);
+        mDaysGainView = (TextView) rootView.findViewById(R.id.daysGain);
+        mDaysGainPercentView = (TextView) rootView.findViewById(R.id.daysGainPercent);
 
+        mArrowDaysGain = (ImageView) rootView.findViewById(R.id.arrowDaysGain);
        // mShareListView =(ListView)rootView.findViewById(R.id.myStockList);
 
        // LayoutInflater headerInflater = getActivity().getLayoutInflater();
@@ -183,8 +189,9 @@ public class PortfolioFragment extends Fragment {
                         public void onDataChange(DataSnapshot dataSnapshot) {
 
                             final double pr = dataSnapshot.child("price").getValue(double.class);
+                            final double df = dataSnapshot.child("diff").getValue(double.class);
                             mTotalWorth = mTotalWorth + (qt * pr);
-
+                            mDaysGain = mDaysGain + (qt * df);
 
                             //PortfolioItems share = new PortfolioItems( symb, qty, buyPrice, sType);
 
@@ -193,6 +200,17 @@ public class PortfolioFragment extends Fragment {
                             //mDatabase.child("Portfolio").child(uid)
                             DecimalFormat fm = new DecimalFormat("#,###,###.00");
                             mTotalWorthView.setText("Rs. "+ fm.format(mTotalWorth));
+
+                            mDaysGainView.setText("Rs. "+ fm.format(mDaysGain));
+
+                            if (mDaysGain < 0 ){
+                                mDaysGainView.setTextColor(getResources().getColor(R.color.priceDecrease));
+                                mArrowDaysGain.setBackgroundResource(R.drawable.arrow_down);
+                            }
+                            else if (mDaysGain > 0){
+                                mDaysGainView.setTextColor(getResources().getColor(R.color.priceIncrease));
+                                mArrowDaysGain.setBackgroundResource(R.drawable.arrow_up);
+                            }
 
                             TotalWorth tWorth = new TotalWorth(mTotalWorth);
                             mRef.child("NetWorth").child(mUser.getUid()).setValue(tWorth);
@@ -235,6 +253,16 @@ public class PortfolioFragment extends Fragment {
                         double netGain = netWorth - netInv;
 
                         mNetGainView.setText("Rs. "+fm.format(netGain));
+
+                        double netGainPercentage =0;
+                        try {
+                            netGainPercentage = netGain / netWorth * 100;
+                        }catch (Exception e){
+                            netGainPercentage = 0;
+                        }
+
+                        mDaysGainPercentView.setText("("+String.format("%.2f",netGainPercentage)+"%)");
+
 
                         if (netGain < 0 ){
                             mNetGainView.setTextColor(getResources().getColor(R.color.priceDecrease));

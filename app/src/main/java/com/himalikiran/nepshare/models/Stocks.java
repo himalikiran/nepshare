@@ -8,7 +8,6 @@ public class Stocks {
      * Name of the Compaly listed in Nepal Stock Exchange.
      */
     private String company;
-    private String companyFullName;
     private double price;
     private double diff;
     private double percent;
@@ -23,51 +22,44 @@ public class Stocks {
      * @param company
      * @param price
      * @param diff
+     * @param percent
      */
-    public Stocks(String company, double price, double diff) {
+    public Stocks(String company, double price, double diff, double percent) {
         this.company = company;
         this.price = price;
         this.diff = diff;
+        this.percent = percent;
     }
 
-
-    /**
-    * Get the company name
-    */
-    public String getCompany(){
-        //company = "Agriculture Development Bank Limited";
-        return this.company;
+    public String getCompany() {
+        return company;
     }
 
-    /**
-     * Get the companyFullName name
-     */
-//    public String getCompanyFullName(){
-//       // companyFullName = "Agriculture Development Bank Limited";
-//        return this.companyFullName;
-//    }
-
-
-    /**
-     * Get the price
-     */
-    public double getPrice(){
-        return this.price;
+    public void setCompany(String company) {
+        this.company = company;
     }
 
-    /**
-     * Get the difference
-     */
-    public double getDiff(){ return this.diff;}
+    public double getPrice() {
+        return price;
+    }
 
-    public double getPercent(){
-        try{
-            double percent = this.diff / (getPrice() - this.diff) ;
+    public void setPrice(double price) {
+        this.price = price;
+    }
 
-        } catch (Exception e){
-            double percent = 0;
-        }
+    public double getDiff() {
+        return diff;
+    }
 
+    public void setDiff(double diff) {
+        this.diff = diff;
+    }
+
+    public double getPercent() {
         return percent;
+    }
+
+    public void setPercent(double percent) {
+        this.percent = percent;
     }
 }
