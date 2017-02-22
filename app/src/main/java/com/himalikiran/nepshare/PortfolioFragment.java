@@ -1,6 +1,7 @@
 package com.himalikiran.nepshare;
 
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -41,7 +42,7 @@ public class PortfolioFragment extends Fragment {
     private TextView mDaysGainView;
     private ImageView mArrowDaysGain;
     private TextView mDaysGainPercentView;
-
+    private TextView mNetGainPercentView;
     private FirebaseAuth mAuth;
     private FirebaseUser mUser;
     private RecyclerView mRecyclerView;
@@ -53,7 +54,7 @@ public class PortfolioFragment extends Fragment {
     private ImageView mArrowNetGain;
 
     private double mDaysGain;
-
+    private double mLastGain;
 
     private FirebaseDatabase mDatabase;
     private DatabaseReference mRef;
@@ -86,22 +87,14 @@ public class PortfolioFragment extends Fragment {
         mArrowNetGain = (ImageView) rootView.findViewById(R.id.arrowNetGain);
         mDaysGainView = (TextView) rootView.findViewById(R.id.daysGain);
         mDaysGainPercentView = (TextView) rootView.findViewById(R.id.daysGainPercent);
-
+        mNetGainPercentView = (TextView) rootView.findViewById(R.id.netGainPercent);
         mArrowDaysGain = (ImageView) rootView.findViewById(R.id.arrowDaysGain);
-       // mShareListView =(ListView)rootView.findViewById(R.id.myStockList);
 
-       // LayoutInflater headerInflater = getActivity().getLayoutInflater();
-       // View header = (ViewGroup) inflater.inflate(R.layout.portfolio_header, mRecyclerView, false);
-
-//       mRecyclerView.addHeaderView(header);
-
-       // getCurrentPrice("NIB");
-       // mTotalWorth =0;
         if (mUser != null) {
-            populatePortfolio();
-            populateTotalInvestment();
-            calculateTotalWorth();
-            calculateNetGain();
+                populatePortfolio();
+                populateTotalInvestment();
+                calculateTotalWorth();
+                calculateNetGain();
         }
         return rootView;
     }
@@ -127,8 +120,8 @@ public class PortfolioFragment extends Fragment {
     public void onResume() {
         super.onResume();
         if (mUser != null){
-           // populatePortfolio();
-            //populateTotalInvestment();
+            populatePortfolio();
+           //populateTotalInvestment();
         }
     }
 
@@ -190,26 +183,28 @@ public class PortfolioFragment extends Fragment {
 
                             final double pr = dataSnapshot.child("price").getValue(double.class);
                             final double df = dataSnapshot.child("diff").getValue(double.class);
-                            mTotalWorth = mTotalWorth + (qt * pr);
-                            mDaysGain = mDaysGain + (qt * df);
 
-                            //PortfolioItems share = new PortfolioItems( symb, qty, buyPrice, sType);
+                            mTotalWorth = mTotalWorth + (qt * pr); //Total Worth = Sum of (Quantity * Current Price)
+                            mDaysGain = mDaysGain + (qt * df); // Day's Gain = Sum of (Quantity * Difference)
 
+                            mLastGain = mLastGain + (qt *(pr-df)); // Last Gain = Sum of (Quantity * (Current Price - Difference)
 
+                            double daysgainpercentage = mDaysGain/mLastGain; // Day's Gain Percentage = Last Gain / Today's Gain
 
-                            //mDatabase.child("Portfolio").child(uid)
                             DecimalFormat fm = new DecimalFormat("#,###,###.00");
                             mTotalWorthView.setText("Rs. "+ fm.format(mTotalWorth));
-
                             mDaysGainView.setText("Rs. "+ fm.format(mDaysGain));
+                            mDaysGainPercentView.setText("("+String.format("%.2f",daysgainpercentage)+"%)");
 
                             if (mDaysGain < 0 ){
-                                mDaysGainView.setTextColor(getResources().getColor(R.color.priceDecrease));
+                                mDaysGainView.setTextColor(Color.RED);
                                 mArrowDaysGain.setBackgroundResource(R.drawable.arrow_down);
+                                mDaysGainPercentView.setTextColor(Color.RED);
                             }
                             else if (mDaysGain > 0){
-                                mDaysGainView.setTextColor(getResources().getColor(R.color.priceIncrease));
+                                mDaysGainView.setTextColor(Color.parseColor("#20bd90"));
                                 mArrowDaysGain.setBackgroundResource(R.drawable.arrow_up);
+                                mDaysGainPercentView.setTextColor(Color.parseColor("#20bd90"));
                             }
 
                             TotalWorth tWorth = new TotalWorth(mTotalWorth);
@@ -256,22 +251,23 @@ public class PortfolioFragment extends Fragment {
 
                         double netGainPercentage =0;
                         try {
-                            netGainPercentage = netGain / netWorth * 100;
+                            netGainPercentage = netGain / netInv * 100;
+
                         }catch (Exception e){
                             netGainPercentage = 0;
                         }
 
-                        mDaysGainPercentView.setText("("+String.format("%.2f",netGainPercentage)+"%)");
+                        mNetGainPercentView.setText("("+String.format("%.2f",netGainPercentage)+"%)");
 
-
-                        if (netGain < 0 ){
-                            mNetGainView.setTextColor(getResources().getColor(R.color.priceDecrease));
-                            mArrowNetGain.setBackgroundResource(R.drawable.arrow_down);
-                        }
-                        else if( netGain > 0){
-                            mNetGainView.setTextColor(getResources().getColor(R.color.priceIncrease));
-                            mArrowNetGain.setBackgroundResource(R.drawable.arrow_up);
-                        }
+                            if (netGain < 0) {
+                                mNetGainView.setTextColor(Color.RED);
+                                mArrowNetGain.setBackgroundResource(R.drawable.arrow_down);
+                                mNetGainPercentView.setTextColor(Color.RED);
+                            } else if (netGain > 0) {
+                                mNetGainView.setTextColor(Color.parseColor("#20bd90"));
+                                mArrowNetGain.setBackgroundResource(R.drawable.arrow_up);
+                                mNetGainPercentView.setTextColor(Color.parseColor("#20bd90"));
+                            }
                     }
 
                     @Override
@@ -326,18 +322,16 @@ public class PortfolioFragment extends Fragment {
 
 
                             if (diffAmount < 0) {
-                                ((TextView) portfolioViewHolder.currentPrice).setTextColor(getResources().getColor(R.color.priceDecrease));
-                                ((TextView) portfolioViewHolder.diffText).setTextColor(getResources().getColor(R.color.priceDecrease));
-                                ((TextView) portfolioViewHolder.percentText).setTextColor(getResources().getColor(R.color.priceDecrease));
+                                ((TextView) portfolioViewHolder.currentPrice).setTextColor(Color.RED);
+                                ((TextView) portfolioViewHolder.diffText).setTextColor(Color.RED);
+                                ((TextView) portfolioViewHolder.percentText).setTextColor(Color.RED);
                                 ((ImageView) portfolioViewHolder.imgViewPortfolio).setBackgroundResource(R.drawable.arrow_down);
                             } else if (diffAmount > 0) {
-                                ((TextView) portfolioViewHolder.currentPrice).setTextColor(getResources().getColor(R.color.priceIncrease));
-                                ((TextView) portfolioViewHolder.diffText).setTextColor(getResources().getColor(R.color.priceIncrease));
-                                ((TextView) portfolioViewHolder.percentText).setTextColor(getResources().getColor(R.color.priceIncrease));
+                                ((TextView) portfolioViewHolder.currentPrice).setTextColor(Color.parseColor("#20bd90"));
+                                ((TextView) portfolioViewHolder.diffText).setTextColor(Color.parseColor("#20bd90"));
+                                ((TextView) portfolioViewHolder.percentText).setTextColor(Color.parseColor("#20bd90"));
                                 ((ImageView) portfolioViewHolder.imgViewPortfolio).setBackgroundResource(R.drawable.arrow_up);
                             }
-
-
                         }
 
                         @Override

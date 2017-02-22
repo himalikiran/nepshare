@@ -15,9 +15,9 @@
     android:layout_width="0dp"
     android:layout_height="wrap_content"
     android:gravity="left"
-    android:text="Symbol "
+    android:text="Company "
     android:textColor="@color/white"
-    android:layout_weight="10"
+    android:layout_weight="8"
     style="@style/portfolioStockHeader"
     />
     <TextView
@@ -35,7 +35,7 @@
         android:gravity="right"
         android:text="Buy Price"
         android:textColor="@color/white"
-        android:layout_weight="12"
+        android:layout_weight="10"
         style="@style/portfolioStockHeader"/>
     <TextView
         android:layout_width="0dp"
@@ -43,7 +43,7 @@
         android:gravity="right"
         android:text="Quantity"
         android:textColor="@color/white"
-        android:layout_weight="12"
+        android:layout_weight="7"
         style="@style/portfolioStockHeader"/>
     <TextView
         android:layout_width="0dp"
@@ -51,6 +51,6 @@
         android:gravity="right"
         android:text="Net Gain"
         android:textColor="@color/white"
-        android:layout_weight="15"
+        android:layout_weight="12"
         style="@style/portfolioStockHeader"/>
 </LinearLayout>

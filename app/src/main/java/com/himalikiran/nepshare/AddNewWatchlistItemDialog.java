@@ -46,8 +46,8 @@ public class AddNewWatchlistItemDialog extends DialogFragment implements View.On
 
 
 
-    private DatabaseReference mDatabase;
-
+    private DatabaseReference mRef;
+    private FirebaseDatabase mDatabase;
     private FirebaseAuth mAuth;
     private FirebaseUser mUser;
 
@@ -76,7 +76,9 @@ public class AddNewWatchlistItemDialog extends DialogFragment implements View.On
         mAuth = FirebaseAuth.getInstance();
         // [END initialize_auth]
 
-        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase = DatabaseUtil.getDatabase();
+
+        mRef = FirebaseDatabase.getInstance().getReference();
 
         mUser = mAuth.getCurrentUser();
 
@@ -141,13 +143,15 @@ public class AddNewWatchlistItemDialog extends DialogFragment implements View.On
 
           FavItems favItems = new FavItems( userId, favSymbolText );
 
-        mDatabase.child("Favorites").child(userId).child(favSymbolText).setValue(favItems);
+        mRef.child("Favorites").child(userId).child(favSymbolText).setValue(favItems);
+        mRef.keepSynced(true);
         //Toast.makeText(getContext(),favSymbolText + " has been added!", Toast.LENGTH_LONG).show();
     }
 
     public void removeFavItem(String fabSymbolText){
         String userId = mUser.getUid();
-        mDatabase.child("Favorites").child(userId).child(fabSymbolText).removeValue();
+        mRef.child("Favorites").child(userId).child(fabSymbolText).removeValue();
+        mRef.keepSynced(true);
         //Toast.makeText(getContext(),fabSymbolText + " has been removed!", Toast.LENGTH_LONG).show();
 
     }
@@ -241,6 +245,7 @@ public class AddNewWatchlistItemDialog extends DialogFragment implements View.On
 
                     }
                 };
+
         mRecyclerView.setAdapter(mRecyclerViewAdapter);
     }
 

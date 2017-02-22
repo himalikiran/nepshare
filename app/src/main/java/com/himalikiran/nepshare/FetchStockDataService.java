@@ -82,7 +82,7 @@ public class FetchStockDataService extends IntentService {
                             }
                             double per= 0;
                             try {
-                                per = diff / (lastPrice-diff) * 100;
+                                per = (diff / (lastPrice-diff)) * 100;
                             } catch (Exception e){
                                 per = 0;
                             }

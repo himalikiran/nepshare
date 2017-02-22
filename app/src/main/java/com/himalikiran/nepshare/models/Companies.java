@@ -22,31 +22,29 @@ public class Companies {
         this.companySector = companySector;
     }
 
-    public void setCompanySymbol(String companySymbol) {
-        this.companySymbol = companySymbol;
-    }
-
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
-    }
-
-    public void setCompanySector(String companySector) {
-        this.companySector = companySector;
-    }
-
     public String getCompanySymbol() {
         return companySymbol;
+    }
+
+    public void setCompanySymbol(String companySymbol) {
+        this.companySymbol = companySymbol;
     }
 
     public String getCompanyName() {
         return companyName;
     }
 
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
     public String getCompanySector() {
         return companySector;
     }
 
-
+    public void setCompanySector(String companySector) {
+        this.companySector = companySector;
+    }
 }
 
 

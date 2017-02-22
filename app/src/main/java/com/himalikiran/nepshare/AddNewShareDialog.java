@@ -94,6 +94,9 @@ public class AddNewShareDialog extends DialogFragment implements OnClickListener
         final ArrayAdapter itemsAdapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_dropdown_item_1line, mShareItems);
 
         mSymbolTextView.setAdapter(itemsAdapter);
+
+        //mSymbolTextView.setDropDownWidth(getResources().getDisplayMetrics().widthPixels);
+
         mCompanyReference.addValueEventListener(new ValueEventListener(){
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
